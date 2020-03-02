@@ -38,6 +38,8 @@
 
 ### Tutorials & Guides
 
+- [IBM Watson Data and AI](https://www.youtube.com/watch?v=EdceqGUuEQM)
+
 ### Documentation
 
 #### Subheading 4
