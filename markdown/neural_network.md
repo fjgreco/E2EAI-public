@@ -24,14 +24,19 @@
 	        
 </details>
 
-## Our mainline routine
+## The mainline routine
 
 def main():
 
-##  Parameters that drive the program. In particular, where to find our input and where to put the output.
+##  Parameters that drive the program. 
 
-
-
+<ul>
+<li>Where to find our input  
+<li>Where to put the output.
+<li>Settable hyperparameters
+</ul>
+	
+	
     parser = argparse.ArgumentParser()
 
     # environment variable when name starts with $
@@ -58,7 +63,6 @@ def main():
     else:
         DATA_DIR = FLAGS.data_dir
         os.environ['DATA_DIR']=FLAGS.data_dir
-
 </details>
 
     # Add data dir to file path
@@ -118,7 +122,7 @@ def main():
     train_features, test_features, train_labels, test_labels = train_test_split(
         input_features, input_labels, test_size=0.25, random_state=42)
 
-# Here is the model 
+# The neural network model definition
 
     model = Sequential()
     model.add(Conv1D(filters=32, kernel_size=12, 
@@ -165,7 +169,7 @@ def main():
     #os.system('(cd $RESULT_DIR/model;tar cvfz ../saved_model.tar.gz .)')
     # serialize model to JSON
  
-### A reusable representation of our model definition...   
+### A reusable representation of our model definition   
     model_json = model.to_json()
     with open("bioinformatics_model.json", "w") as json_file:
         json_file.write(model_json)
@@ -173,7 +177,7 @@ def main():
     cmdstring3 = 'cp ' + "bioinformatics_model.json" + ' '+  output_model_folder
     os.system(cmdstring3)
 
-### The trained parameters i.e., the weights of our model...
+### The trained parameters i.e., the weights of our model
     model.save_weights("bioinformatics_model_weights.h5")
     cmdstring4 = 'cp ' + "bioinformatics_model_weights.h5" + ' '+  output_model_folder
     os.system(cmdstring4)
@@ -264,11 +268,11 @@ def main():
     -rw-r-----. 1 wsuser watsonstudio  42168 Feb 25 19:58 bioinformatics_model_weights.h5
          
     
-# Everthing thus far can theoretically run anywhere- like on a laptop. But,...
+# Thus far everything can theoretically run anywhere- like on a laptop. But,...
    
-# The data can be large
+# The bioinformatic data can be very large
 
-# The model can be very large and complex
+# The models can be very large and computationally complex
 
 ![png](images/LargeNetwork.png)
 
