@@ -46,4 +46,4 @@
 
 - [IBM Create Folder Asset Connections in IBM Watson Knowledge Catalog](https://www.youtube.com/watch?v=WVUPHRsXwSQ&list=PLzpeuWUENMK1z9oXhTlbNXRiRaBjSpUKJ&index=8)
 
-[Jump to Top](#Project-Name)
+[Jump to Top](./buttons/return.png)(#Context)
