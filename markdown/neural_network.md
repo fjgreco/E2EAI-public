@@ -1,13 +1,12 @@
-## Neural Network
-
 # An example neural network program to identify protein binding patterns
 
 ![png](images/simplemodel.png)
 
 #### Placeholder
 
-## The up front stuff
+## The up front package imports
 
+<details>
 	import argparse
 	#import input_data
 	import os
@@ -22,13 +21,16 @@
 	from keras.models import Sequential
 	from keras import layers
 	from keras.layers import Conv1D, Dense, MaxPooling1D, Flatten
-
+	        
+</details>
 
 ## Our mainline routine
 
 def main():
 
 ##  Parameters that drive the program. In particular, where to find our input and where to put the output.
+
+
 
     parser = argparse.ArgumentParser()
 
@@ -38,6 +40,8 @@ def main():
     parser.add_argument('--sequences_file', type=str,default='sequences.txt',help='File name for sequences')
     parser.add_argument('--labels_file', type=str,default='labels.txt',help='File name for labels')
 
+
+<details>
     FLAGS, unparsed = parser.parse_known_args()
 
     print (FLAGS.result_dir)
@@ -55,11 +59,14 @@ def main():
         DATA_DIR = FLAGS.data_dir
         os.environ['DATA_DIR']=FLAGS.data_dir
 
+</details>
+
     # Add data dir to file path
     sequences_file = os.path.join(DATA_DIR, FLAGS.sequences_file)
     
     labels_file = os.path.join(DATA_DIR, FLAGS.labels_file)
     
+
     
 #  "One-hot" encode the input data (Common practice for categorical machine learning models )     
     
@@ -133,22 +140,24 @@ def main():
     
     output_model_folder = os.environ["RESULT_DIR"]
     
-### The trained model...
-   
-    h5_filename  = "bioinformatics_model.h5"
-    
-    tar_filename = "bioinformatics_model.tgz"
 
-    print("h5_filename: ",h5_filename)
+### The trained model 
 
-    print("tar_filename: ",tar_filename)
+ 	h5_filename  = "bioinformatics_model.h5"
+      print("h5_filename: ",h5_filename)
 
     model.save( h5_filename ) 
     cmdstring1 = 'cp ' + h5_filename + ' '+  output_model_folder
     os.system(cmdstring1)
 
+### A compressed version of the trained modelfile (required by WML for deploying Keras models)
+
+    tar_filename = "bioinformatics_model.tgz"
+
     cmdstring2 = 'tar -zcvf ' + tar_filename + ' ' + h5_filename
     os.system(cmdstring2)
+    
+    print("tar_filename: ",tar_filename)
     
     cmdstring22 = 'cp ' + tar_filename + ' '+  output_model_folder
     os.system(cmdstring22)
@@ -170,7 +179,7 @@ def main():
     os.system(cmdstring4)
 
 
-## Sense of the encoded data
+##  A sense of the encoded data (written to the log)
 
     Using TensorFlow backend.
     
@@ -240,7 +249,7 @@ def main():
 
     No-bind probability: 2.4192843284254195e-06 Bind probability: 0.999997615814209
  
-## Everything end up in a RESULTS folder   
+## Everything ends up in the RESULTS folder   
 
    
     -rw-r-----. 1 wsuser watsonstudio 108728 Feb 25 19:58 bioinformatics_model.h5
@@ -257,11 +266,9 @@ def main():
     
 # Everthing thus far can theoretically run anywhere- like on a laptop. But,...
    
-# AI Development is Iterative
+# The data can be large
 
-![png](images/AIWorkflow.png)
-
-# The problems can be very large
+# The model can be very large and complex
 
 ![png](images/LargeNetwork.png)
 
