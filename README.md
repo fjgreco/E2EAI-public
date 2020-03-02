@@ -12,7 +12,7 @@
 
 ## Neural Network
 
-[![Neural Network](./buttons/buNeuralNetwork.png)](./markdown/neural_network_.md)
+[![Neural Network](./buttons/buNeuralNetwork.png)](./markdown/neural_network.md)
 
 ## Watson Machine Learning
 
