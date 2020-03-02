@@ -16,7 +16,7 @@
 
 ## Developer/Data Scientist: Train and Evaluate (Organize & Analyze)
 
-[![WML](./buttons/buWML.png)](./markdown/wml.md)
+[![WML](./buttons/buTrain.png)](./markdown/wml.md)
 
 [![Evaluation](./buttons/buEvaluation.png)](./markdown/evaluate.md)
 
