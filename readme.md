@@ -8,7 +8,7 @@
 
 ## Data
 
-[![Data](./buttons/buData.png)](./markdown/buData.md)
+[![Data](./buttons/buData.png)](./markdown/data.md)
 
 ## Neural Network
 
