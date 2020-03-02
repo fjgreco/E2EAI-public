@@ -32,16 +32,18 @@
 
 ## Additional Resources
 
-### IBM Cloud Catalog
+#### Links
+
+- [IBM Cloud Pak for Data](https://developer.ibm.com/clouddataservices/docs/ibm-cloud-pak-for-data/)
 
 - [IBM Cloud Catalog](https://console.bluemix.net/catalog/)
 
-### Tutorials & Guides
+#### Videos
 
 - [IBM Watson Data and AI](https://www.youtube.com/watch?v=EdceqGUuEQM)
 
-### Documentation
+- [IBM Watson Knowledge Catalog Concepts Overview](https://www.youtube.com/watch?v=OMBNKk8LNck&list=PLzpeuWUENMK1z9oXhTlbNXRiRaBjSpUKJ&index=4)
 
-#### Subheading 4
+- [IBM Create Folder Asset Connections in IBM Watson Knowledge Catalog](https://www.youtube.com/watch?v=WVUPHRsXwSQ&list=PLzpeuWUENMK1z9oXhTlbNXRiRaBjSpUKJ&index=8)
 
 [Jump to Top](#Project-Name)
