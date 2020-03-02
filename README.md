@@ -22,7 +22,7 @@
 
 [![Deployment](./buttons/buDeployment.png)](./markdown/deployment.md)
 
-## Practitioner/Researcher/Data Scientist - Use
+## Practitioner/Researcher/Data Scientist: Use
 
 [![Deployment](./buttons/buUse.png)](./markdown/use.md)
 
