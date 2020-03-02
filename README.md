@@ -18,6 +18,8 @@
 
 [![WML](./buttons/buWML.png)](./markdown/wml.md)
 
+[![Evaluation](./buttons/buEvaluation.png)](./markdown/evaluate.md)
+
 ## Developer: Deploy (Infuse)
 
 [![Deployment](./buttons/buDeployment.png)](./markdown/deployment.md)
