@@ -6,27 +6,23 @@
 
 [Jump to Additional Resources](#Additional-Resources)
 
-## Data
+## Researcher - Upload and Catalog Data (Collect & Organize)
 
 [![Data](./buttons/buData.png)](./markdown/data.md)
 
-## Neural Network
+## Data Scientist - Neural Network Design (Organize & Analyze)
 
 [![Neural Network](./buttons/buNeuralNetwork.png)](./markdown/neural_network.md)
 
-## Watson Machine Learning
+## Developer/Data Scientist -> Train and Evaluate (Organize & Analyze)
 
 [![WML](./buttons/buWML.png)](./markdown/wml.md)
 
-## Evaluation
-
-[![Evaluation](./buttons/buEvaluation.png)](./markdown/evaluation.md)
-
-## Deployment
+## Developer -> Deploy (Infuse)
 
 [![Deployment](./buttons/buDeployment.png)](./markdown/deployment.md)
 
-## Use
+## Practitioner/Researcher/Data Scientist - Use
 
 [![Deployment](./buttons/buUse.png)](./markdown/use.md)
 
