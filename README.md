@@ -6,19 +6,19 @@
 
 [Jump to Additional Resources](#Additional-Resources)
 
-## Researcher - Upload and Catalog Data (Collect & Organize)
+## Researcher: Upload and Catalog Data (Collect & Organize)
 
 [![Data](./buttons/buData.png)](./markdown/data.md)
 
-## Data Scientist - Neural Network Design (Organize & Analyze)
+## Data Scientist: Neural Network Design (Organize & Analyze)
 
 [![Neural Network](./buttons/buNeuralNetwork.png)](./markdown/neural_network.md)
 
-## Developer/Data Scientist -> Train and Evaluate (Organize & Analyze)
+## Developer/Data Scientist: Train and Evaluate (Organize & Analyze)
 
 [![WML](./buttons/buWML.png)](./markdown/wml.md)
 
-## Developer -> Deploy (Infuse)
+## Developer: Deploy (Infuse)
 
 [![Deployment](./buttons/buDeployment.png)](./markdown/deployment.md)
 
