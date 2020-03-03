@@ -239,11 +239,6 @@ print( "definition_uid: ", definition_uid )
     definition_uid:  f205f565-21bb-444a-a4a1-abb03f847d24
 
 
-
-```python
-
-```
-
 ### The following code identifies the following WML metadata:
 <ul>
 <li>The IBM Cloud Object Storage bucket where our input training data resides 
@@ -411,7 +406,7 @@ plt.show()
 ```
 
 
-![png](output_36_0.png)
+![png](images_train/output_36_0.png)
 
 
 
@@ -422,7 +417,7 @@ plt.show()
 ```
 
 
-![png](output_37_0.png)
+![png](images_train/output_37_0.png)
 
 
 
@@ -433,7 +428,7 @@ plt.show()
 ```
 
 
-![png](output_38_0.png)
+![png](images_train/output_38_0.png)
 
 
 
@@ -714,7 +709,7 @@ for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
 
 
 
-![png](output_59_1.png)
+![png](images/train/output_59_1.png)
 
 
 ### Produce predictions and salience charts
@@ -815,7 +810,7 @@ for i in range(len(sequences2)):
 
 
 
-![png](output_68_1.png)
+![png](images_train/output_68_1.png)
 
 
     Nobind probability: 0.9999997615814209 Bind probability: 2.558667233643064e-07
@@ -827,7 +822,7 @@ for i in range(len(sequences2)):
 
 
 
-![png](output_68_3.png)
+![png](images_train/output_68_3.png)
 
 
     Nobind probability: 1.0 Bind probability: 3.5872671499959097e-09
@@ -839,7 +834,7 @@ for i in range(len(sequences2)):
 
 
 
-![png](output_68_5.png)
+![png](images_train/output_68_5.png)
 
 
     Nobind probability: 0.9999997615814209 Bind probability: 2.0125524713421328e-07
@@ -851,7 +846,7 @@ for i in range(len(sequences2)):
 
 
 
-![png](output_68_7.png)
+![png](images_train/output_68_7.png)
 
 
     Nobind probability: 3.4863812743424205e-06 Bind probability: 0.999996542930603
@@ -863,7 +858,7 @@ for i in range(len(sequences2)):
 
 
 
-![png](output_68_9.png)
+![png](images_train/output_68_9.png)
 
 
     Nobind probability: 0.0008279726607725024 Bind probability: 0.9991720914840698
@@ -875,7 +870,7 @@ for i in range(len(sequences2)):
 
 
 
-![png](output_68_11.png)
+![png](images_train/output_68_11.png)
 
 
     Nobind probability: 1.6434263443443342e-06 Bind probability: 0.9999983310699463
@@ -885,7 +880,7 @@ for i in range(len(sequences2)):
 
 ## DEPLOYMENT
 
-### Save re-compliled model and package for deployment
+### Save re-compiled model and package for deployment
 Note: The compression is required by Keras
 
 
