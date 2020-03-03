@@ -172,16 +172,17 @@ Here, we save to a folder in the CP4D file system.
     output_model_folder = os.environ["RESULT_DIR"]
     
 ### The trained model 
-
+<details>
  	h5_filename  = "bioinformatics_model.h5"
       print("h5_filename: ",h5_filename)
 
     model.save( h5_filename ) 
     cmdstring1 = 'cp ' + h5_filename + ' '+  output_model_folder
     os.system(cmdstring1)
+</details>
 
 ### A compressed version of the trained modelfile (required by WML for deploying Keras models)
-
+<details>
     tar_filename = "bioinformatics_model.tgz"
 
     cmdstring2 = 'tar -zcvf ' + tar_filename + ' ' + h5_filename
@@ -194,14 +195,17 @@ Here, we save to a folder in the CP4D file system.
     
     #os.system('(cd $RESULT_DIR/model;tar cvfz ../saved_model.tar.gz .)')
     # serialize model to JSON
+</details>
  
 ### A reusable representation of our model definition   
+<details>
     model_json = model.to_json()
     with open("bioinformatics_model.json", "w") as json_file:
         json_file.write(model_json)
  
     cmdstring3 = 'cp ' + "bioinformatics_model.json" + ' '+  output_model_folder
     os.system(cmdstring3)
+</details>
 
 ### The trained parameters i.e., the weights of our model
     model.save_weights("bioinformatics_model_weights.h5")
@@ -257,7 +261,7 @@ Here, we save to a folder in the CP4D file system.
 
     No-bind probability: 2.4192843284254195e-06 Bind probability: 0.999997615814209
  
-## Everything ends up in the RESULTS folder   
+## Everything ends up in the RESULTS folder...   
    
     -rw-r-----. 1 wsuser watsonstudio 108728 Feb 25 19:58 bioinformatics_model.h5
     -rw-r-----. 1 wsuser watsonstudio   1988 Feb 25 19:58 bioinformatics_model.json
@@ -271,11 +275,9 @@ Here, we save to a folder in the CP4D file system.
     -rw-r-----. 1 wsuser watsonstudio  42168 Feb 25 19:58 bioinformatics_model_weights.h5
          
     
-# Thus far, everything can potentially run anywhere- like on a laptop. But,...
-   
-# Bioinformatic data can be very large.
-
-# The models can be very large and computationally complex.
+## Thus far, everything can potentially run anywhere- like on a laptop. But,...
+- Bioinformatic data can be very large.
+- The models can be very large and computationally complex.
 
 ![png](images/LargeNetwork.png)
 
