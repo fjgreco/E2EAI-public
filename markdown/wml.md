@@ -1,26 +1,53 @@
 
-![png](images/IntegratedView-Slide9.png)
 
 ![png](images/WMLProcess.png)
+
 
 # Bioinformatics Modeling Using Watson Machine Learning
 
 
 ```python
-
 from project_lib import Project
 project = Project.access()
 storage_credentials = project.get_storage_metadata()
-
 ```
 
 ### Preliminary:  Instantiate a Watson Studio project , WML, ICOS (done outside of this notebook)
+<details>
+
+```python
+!pip uninstall  wget -y
+!pip install wget
+
+#!pip uninstall watson-machine-learning-client-V4 -y 
+#!pip install watson-machine-learning-client-V4
+
+!pip uninstall watson-machine-learning-client -y
+!pip install watson-machine-learning-client==1.0.378
+```
+
+```python
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+```
 
 ### WML Client Version 1.0378 setup for demo purposes
 
-
+<details>
 ```python
 import sys, os, imp
+```
+
+
+```python
+print(sys.path)
+```
+
+    ['', '/cc-home/_global_/python-3.6', '/cc-home/_global_/python-3', '/user-home/_global_/python-3.6', '/user-home/_global_/python-3', '/opt/conda/envs/Python-3.6/lib/python36.zip', '/opt/conda/envs/Python-3.6/lib/python3.6', '/opt/conda/envs/Python-3.6/lib/python3.6/lib-dynload', '/home/wsuser/.local/lib/python3.6/site-packages', '/opt/conda/envs/Python-3.6/lib/python3.6/site-packages', '/opt/conda/envs/Python-3.6/lib/python3.6/site-packages/IPython/extensions', '/home/wsuser/.ipython']
+
+
+
+```python
 sys.path.reverse()
 from watson_machine_learning_client import WatsonMachineLearningAPIClient
 sys.path.reverse()
@@ -28,7 +55,7 @@ print("Done")
 ```
 
     Done
-
+</details>
 
 ## Connect to Watson Machine Learning
 
@@ -56,7 +83,7 @@ print('client.version:', client.version)
 
 ## Connect to IBM Cloud Object Storage and define search script
 
-
+<details>
 ```python
 icos_credentials={
   "apikey": "uSYOgQRcMVikimnEwccgQcNW7xwp-ckXyB-8H-qhb2u-",
@@ -122,17 +149,22 @@ def get_download_list(bucket_name,model_location,cos=cos):
         print("Unable to retrieve bucket contents: {0}".format(e))
     return download_list  
 ```
+</details>
 
-##  A zip file  is used to convey our machine learning model program artifacts to WML.
+##  Package the model program and supporting artifacts into a zip file and pass to Watson Machine Learning for training...
 
-### Example 1:  Obtain zip file from project asset storage
+### Approach 1:  Obtain zip file from project asset storage
 
+<details>
 
 ```python
 !cp /project_data/data_asset/tf_model_v5.zip .
 ```
+</details>
 
-### Example 2: Obtain zip file from git hub
+### Approach 2: Obtain zip file from git hub
+<details>
+
 import os
 import wget
 filename = 'tf_model_v5.zip'
@@ -141,20 +173,54 @@ filename = 'tf_model_v5.zip'
 
 url= 'https://github.com/fjgreco/Bioinformatics/blob/master/tf_model_v5.zip?raw=true'
 
+
+# NOTE: If you are re-running this code block again, having changed the model or adding your own custom model
+# be careful to ensure that your new model is the one which is truly downloaded.
+
 if not os.path.isfile( filename ):
     print("File {} not found, Downloading from {}".format(filename,url))
     wget.download(url)
-## Setup a  WML training run
+</details>
 
-### Specify training run parameters
+### Approach 3: Build the zip file inline
+<details>
 
-#### Note: The bucket names and endpoint URLs of the buckets were created in the preliminary ICOS step
+%%bash
+(if [ ! -d "tf_model_v5" ] 
+ then mkdir tf_model_v5 
+ fi
+ cp /project_data/data_asset/neural_network_v5.py tf_model_v5
+ zip -r tf_model_v5.zip tf_model_v5 )
+## Define a  WML training run
+
+</details>
+
+### We use a timestamp to distinguish different training runs and results
+
+```python
+import datetime
+
+print('Timestamp: {:%Y%m%d%H%M%S}'.format(datetime.datetime.now()))
+ts='{:%Y%m%d%H%M%S}'.format(datetime.datetime.now())
+print(ts)
+```
+
+    Timestamp: 20200302233424
+    20200302233424
+
+
+### The following code identifies the following WML metadata:
+<ul>
+<li>The runtime environment in which our code will run i.e., Tensorflow V 1.14 and Python 3.6
+<li>The python command that WML will use to execute the program. 
+<li>The location of the zip file that contains the machine learning model program, which will be passed to the WML server.
+</ul>
 
 
 ```python
 #V3
 metadata = {
-client.repository.DefinitionMetaNames.NAME              : "zen-bioinformatics-training-definition_v5",
+client.repository.DefinitionMetaNames.NAME              : "zen-bioinformatics-training_v3nn5_"+ts,
 client.repository.DefinitionMetaNames.FRAMEWORK_NAME    : "tensorflow",
 client.repository.DefinitionMetaNames.FRAMEWORK_VERSION : "1.14",
 client.repository.DefinitionMetaNames.RUNTIME_NAME      : "python",
@@ -166,16 +232,25 @@ definition_uid     = client.repository.get_definition_uid( definition_details )
 print( "definition_uid: ", definition_uid )
 ```
 
-    definition_uid:  93b2f1c3-3a6a-40d7-a12b-40c747d10d43
+    definition_uid:  f205f565-21bb-444a-a4a1-abb03f847d24
 
 
-### The following code identifies the IBM Cloud Object Storage buckets where our input training data resides and where our results will end up. 
-### We also indicate the hardware platform on which we want to run, in this case K80.
+
+```python
+
+```
+
+### The following code identifies the following WML metadata:
+<ul>
+<li>The IBM Cloud Object Storage bucket where our input training data resides 
+<li>The IBM Cloud Object Storage bucket where our results will end up. 
+<li>The hardware platform on which we want to run, in this case K80.
+</ul>
 
 
 ```python
 icos_metadata = {
-client.training.ConfigurationMetaNames.NAME         : "zen-bioinformatics-training-run_v5",
+client.training.ConfigurationMetaNames.NAME         : "zen-bioinformatics-training-run_v3nn5_"+ts,
 client.training.ConfigurationMetaNames.TRAINING_DATA_REFERENCE : {
    "connection" : { 
       "endpoint_url"      : "https://s3.us.cloud-object-storage.appdomain.cloud",
@@ -202,16 +277,20 @@ client.training.ConfigurationMetaNames.TRAINING_RESULTS_REFERENCE: {
 print('Done')
 ```
 
-## Start and monitor training progress
+    Done
+
+
+## Submit the training definition to the WML server for training and monitor run progress
 
 
 ```python
 run_details = client.training.run(definition_uid, meta_props=icos_metadata)
+
 run_uid     = client.training.get_run_uid(run_details)
 print("run_uid: ", run_uid)
 ```
 
-    run_uid:  model-5q4550d1
+    run_uid:  model-k34afm4o
 
 
 
@@ -227,24 +306,31 @@ while cts not in ['completed', 'failed', 'canceled', 'error']:
     
 print( cts)
 ```
-
+<details>
+    pending
+    pending
+    pending
+    pending
     pending
     pending
     pending
     running
     running
     running
-	...
+    running
+    running
+    running
+    running
+    running
     running
     running
     running
     running
     completed
+</details>        
 
 
-## Review Results
-
-### Once our run completes, we check run details...
+### Check  training run processing details:
 
 
 ```python
@@ -252,18 +338,20 @@ client.training.get_details(run_uid)
 ```
 
 
-    {'entity': {'model_definition': {'definition_href': 'https://us-south.ml.cloud.ibm.com/v3/ml_assets/training_definitions/9b538378-9981-403c-8b6e-4245cf9d4a52',
+<details>
+
+    {'entity': {'model_definition': {'definition_href': 'https://us-south.ml.cloud.ibm.com/v3/ml_assets/training_definitions/f205f565-21bb-444a-a4a1-abb03f847d24',
        'execution': {'command': 'python3 tf_model_v5/neural_network_v5.py --sequencesFile ${DATA_DIR}/sequences.txt --labelsFile ${DATA_DIR}/labels.txt',
         'compute_configuration': {'name': 'k80'}},
        'framework': {'name': 'tensorflow', 'version': '1.14'},
-       'name': 'zen-bioinformatics-training-run_v5'},
-      'status': {'current_at': '2020-02-25T19:58:47.090Z',
-       'finished_at': '2020-02-25T19:57:51.084Z',
-       'message': 'training-u_33PzlWR: ',
+       'name': 'zen-bioinformatics-training-run_v3nn5_20200302233424'},
+      'status': {'current_at': '2020-03-02T23:40:47.919Z',
+       'finished_at': '2020-03-02T23:39:39.769Z',
+       'message': 'training-WyAzx1lWg: ',
        'metrics': [],
-       'running_at': '2020-02-25T19:55:52.023Z',
+       'running_at': '2020-03-02T23:37:44.450Z',
        'state': 'completed',
-       'submitted_at': '2020-02-25T19:55:41.317Z'},
+       'submitted_at': '2020-03-02T23:37:33.627Z'},
       'training_data_reference': {'connection': {'access_key_id': '7d6ca104f1fb4ff88bd8ad9ec7bdd090',
         'endpoint_url': 'https://s3.us.cloud-object-storage.appdomain.cloud',
         'secret_access_key': 'f89db50acd602219b4e5aa443cca7b2ca8f949ad0ca927ed'},
@@ -273,14 +361,16 @@ client.training.get_details(run_uid)
         'endpoint_url': 'https://s3.us.cloud-object-storage.appdomain.cloud',
         'secret_access_key': 'f89db50acd602219b4e5aa443cca7b2ca8f949ad0ca927ed'},
        'location': {'bucket': 'hmss2020-results',
-        'model_location': 'training-u_33PzlWR'},
+        'model_location': 'training-WyAzx1lWg'},
        'type': 's3'}},
-     'metadata': {'created_at': '2020-02-25T19:55:39.215Z',
-      'guid': 'model-5q4550d1',
-      'modified_at': '2020-02-25T19:55:39.215Z',
-      'url': '/v3/models/model-5q4550d1'}}
+     'metadata': {'created_at': '2020-03-02T23:37:30.982Z',
+      'guid': 'model-k34afm4o',
+      'modified_at': '2020-03-02T23:37:30.982Z',
+      'url': '/v3/models/model-k34afm4o'}}
 
+</details>
 
+## Review  the training results generated by the machine model program
 
 
 ```python
@@ -288,33 +378,27 @@ ctd=client.training.get_details(run_uid)
 model_location= ctd['entity']['training_results_reference']['location']['model_location'] 
 ```
 
-### Download training results from shared object storage to our local project  environment. 
-### We are using Watson Studio running on Cloud Pak for Data.
+### Download training results from shared object storage to CP4D/WS working storage. 
 
 
 ```python
   dl2=get_download_list(results_bucket,model_location)
 ```
 
-    Retrieving relevant bucket contents from: hmss2020-results Model_location: training-u_33PzlWR
+    Retrieving relevant bucket contents from: hmss2020-results Model_location: training-WyAzx1lWg
     
-    training-u_33PzlWR/bioinformatics_model.h5
-    training-u_33PzlWR/bioinformatics_model.json
-    training-u_33PzlWR/bioinformatics_model.tgz
-    training-u_33PzlWR/bioinformatics_model_accuracy.pdf
-    training-u_33PzlWR/bioinformatics_model_accuracy.png
-    training-u_33PzlWR/bioinformatics_model_confusion_matrix.png
-    training-u_33PzlWR/bioinformatics_model_loss.pdf
-    training-u_33PzlWR/bioinformatics_model_loss.png
-    training-u_33PzlWR/bioinformatics_model_scoring.txt
-    training-u_33PzlWR/bioinformatics_model_weights.h5
+    training-WyAzx1lWg/bioinformatics_model.h5
+    training-WyAzx1lWg/bioinformatics_model.json
+    training-WyAzx1lWg/bioinformatics_model.tgz
+    training-WyAzx1lWg/bioinformatics_model_accuracy.pdf
+    training-WyAzx1lWg/bioinformatics_model_accuracy.png
+    training-WyAzx1lWg/bioinformatics_model_confusion_matrix.png
+    training-WyAzx1lWg/bioinformatics_model_loss.pdf
+    training-WyAzx1lWg/bioinformatics_model_loss.png
+    training-WyAzx1lWg/bioinformatics_model_scoring.txt
+    training-WyAzx1lWg/bioinformatics_model_weights.h5
 
 
-
-```python
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-```
 
 ```python
 image = mpimg.imread("bioinformatics_model_accuracy.png")
@@ -323,7 +407,7 @@ plt.show()
 ```
 
 
-![png](images_train/output_28_0.png)
+![png](output_36_0.png)
 
 
 
@@ -334,7 +418,7 @@ plt.show()
 ```
 
 
-![png](images_train/output_29_0.png)
+![png](output_37_0.png)
 
 
 
@@ -345,7 +429,7 @@ plt.show()
 ```
 
 
-![png](images_train/output_30_0.png)
+![png](output_38_0.png)
 
 
 
@@ -371,16 +455,89 @@ plt.show()
     Trainable params: 6,226
     Non-trainable params: 0
     _________________________________________________________________
-    binary_accuracy: 98.40%
+    binary_accuracy: 97.40%
 
 
-### Run Clean-up
-client.training.cancel(run_uid)client.training.delete(run_uid)
+### Store results in project_asset storage
+
+```bash
+%%bash -s "$ts"
+(if [ ! -d "/project_data/data_asset/tf_model_v5_"$1 ] 
+ then mkdir /project_data/data_asset/tf_model_v5_$1 
+ fi
+ cp bioinformatics* /project_data/data_asset/tf_model_v5_$1/.)
+```
+
 ## SOME TIME LATER...
 
-### Using  the stored model definition and trained weights, we can recompile the model and continue to work with it.
+### Using  the stored model definition and trained weights, we can recompile the model and resume work.
 
-### * Include screen shot of object storage/catalog
+
+```python
+client.repository.list()
+```
+
+    ------------------------------------  ------------------------------------------------  ------------------------  ---------------  -----------------
+    GUID                                  NAME                                              CREATED                   FRAMEWORK        TYPE
+    f205f565-21bb-444a-a4a1-abb03f847d24  zen-bioinformatics-training_v3nn5_20200302233424  2020-03-02T23:37:12.867Z  tensorflow       definition
+    7fe962f4-3cc5-4d5d-8e72-8654971ae9e9  zen-bioinformatics-training-definition_v3nn5      2020-03-01T02:00:45.065Z  tensorflow       definition
+    7c43ab5d-b52a-490a-9750-a49d92a8ebb7  ws-bioinformatics-training-definition-v5          2020-02-26T00:26:13.427Z  tensorflow       definition
+    18479c6b-1688-41da-996b-9cff9d3ecbb9  DL3                                               2020-02-26T04:01:57.495Z  -                experiment
+    91af05a1-b7ed-4825-b39c-2e5bb3218c09  zen_bioinformatics_model_v3nn5_r                  2020-03-01T02:07:45.559Z  tensorflow-1.14  model
+    7c26209f-7cf0-4103-90ab-6c4c518e032d  DL3-Model-V1.1                                    2020-02-26T04:28:48.160Z  tensorflow-1.14  model
+    dbceee12-7835-4aa8-90ec-3fdfa485654a  DL3-model-Version1                                2020-02-26T04:05:29.891Z  tensorflow-1.14  model
+    2917fae8-ebdd-435e-af94-281c5ea9015a  ws-bioinformatics_model-v5                        2020-02-26T00:34:08.045Z  tensorflow-1.14  model
+    c042c672-5111-4322-a7eb-cf0c4d3177d3  zen_bioinformatics_deployment_v3nn5(r)            2020-03-01T02:07:53.584Z  tensorflow-1.14  online deployment
+    eab67438-b5d0-42f4-ad0f-b46cc887f936  ws_bioinformatic_deployment_v5                    2020-02-26T00:34:13.106Z  tensorflow-1.14  online deployment
+    ------------------------------------  ------------------------------------------------  ------------------------  ---------------  -----------------
+
+
+
+```python
+!ls /project_data/data_asset
+```
+
+    DATADIR
+    DATADIR.zip
+    Rnorvegicus.fasta
+    __pycache__
+    apikey.json
+    default_commit_hash
+    icoskeys.txt
+    labels_txt_54t5ig9cxtblv9s5lvrpc3c1g
+    male.hg19.fasta
+    male.hg19.fasta copy.fai
+    male.hg19.fasta.fai
+    neural_network_v5.py
+    new_neural_network2.py
+    new_neural_network4.py
+    object_subfolder
+    rbr.out
+    results.csv
+    sra_repository
+    swab_Illumina_fastq_7zts604faspjjdibpea5dk5pm
+    tf-model3.zip
+    tf-model4
+    tf-model4.zip
+    tf_model_v5
+    tf_model_v5.zip
+    tf_model_v5_20200302233424
+
+
+
+```python
+print ('Effective timestamp: ',ts)
+```
+
+    Effective timestamp:  20200302233424
+
+
+### Retrieve the model artifacts to working storage...
+
+
+```python
+!cp /project_data/data_asset/tf_model_v5_{ts}/* .
+```
 
 
 ```python
@@ -393,19 +550,20 @@ mconfusion="bioinformatics_model_confusion_matrix.png"
 !ls -al bioinformatics*
 ```
 
-    -rw-r-----. 1 wsuser watsonstudio 108728 Feb 25 19:58 bioinformatics_model.h5
-    -rw-r-----. 1 wsuser watsonstudio   1988 Feb 25 19:58 bioinformatics_model.json
-    -rw-r-----. 1 wsuser watsonstudio  70710 Feb 25 19:58 bioinformatics_model.tgz
-    -rw-r-----. 1 wsuser watsonstudio  12737 Feb 25 19:58 bioinformatics_model_accuracy.pdf
-    -rw-r-----. 1 wsuser watsonstudio  25045 Feb 25 19:58 bioinformatics_model_accuracy.png
-    -rw-r-----. 1 wsuser watsonstudio  23752 Feb 25 19:58 bioinformatics_model_confusion_matrix.png
-    -rw-r-----. 1 wsuser watsonstudio  11810 Feb 25 19:58 bioinformatics_model_loss.pdf
-    -rw-r-----. 1 wsuser watsonstudio  25582 Feb 25 19:58 bioinformatics_model_loss.png
-    -rw-r-----. 1 wsuser watsonstudio   1036 Feb 25 19:58 bioinformatics_model_scoring.txt
-    -rw-r-----. 1 wsuser watsonstudio  42168 Feb 25 19:58 bioinformatics_model_weights.h5
+    -rw-r-----. 1 wsuser watsonstudio 108728 Mar  3 01:24 bioinformatics_model.h5
+    -rw-r-----. 1 wsuser watsonstudio   1988 Mar  3 01:24 bioinformatics_model.json
+    -rw-r-----. 1 wsuser watsonstudio  70339 Mar  3 01:24 bioinformatics_model.tgz
+    -rw-r-----. 1 wsuser watsonstudio  12782 Mar  3 01:24 bioinformatics_model_accuracy.pdf
+    -rw-r-----. 1 wsuser watsonstudio  25694 Mar  3 01:24 bioinformatics_model_accuracy.png
+    -rw-r-----. 1 wsuser watsonstudio  24261 Mar  3 01:24 bioinformatics_model_confusion_matrix.png
+    -rw-r-----. 1 wsuser watsonstudio  11819 Mar  3 01:24 bioinformatics_model_loss.pdf
+    -rw-r-----. 1 wsuser watsonstudio  25737 Mar  3 01:24 bioinformatics_model_loss.png
+    -rw-r-----. 1 wsuser watsonstudio   1036 Mar  3 01:24 bioinformatics_model_scoring.txt
+    -rw-r-----. 1 wsuser watsonstudio    143 Mar  3 01:24 bioinformatics_model_v3nn5_20200302233424.url
+    -rw-r-----. 1 wsuser watsonstudio  42168 Mar  3 01:24 bioinformatics_model_weights.h5
 
 
-### Re-compile neural model for local use
+### Re-compile neural model
 This step does not involve training data.
 
 
@@ -419,18 +577,18 @@ loaded_model = model_from_json(loaded_model_json)
 
 # load weights into new model
 loaded_model.load_weights(mweights)
-print("Loaded model from disk")
+print("Loaded model from project assets")
  
 # evaluate loaded model on test data
 loaded_model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 ```
 
-    Loaded model from disk
+    Loaded model from project assets
 
 
-## Gather some data for analysis 
+## Select data for analysis 
 
-
+<details>
 ```python
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.model_selection import train_test_split
@@ -464,9 +622,9 @@ def ohe_Xy(sequences,labels):
 
     np.set_printoptions(threshold=40)
     input_features = np.stack(input_features)
-    print("One hot encoding of features and labels\n-----------------------")
-    print('\nDNA Sequence #1:\n',sequences[0][:10],'...',sequences[0][-10:])
-    print('\nOne hot encoding of Sequence #1:\n',input_features[0].T)
+    #print("One hot encoding of features and labels\n-----------------------")
+    #print('\nDNA Sequence #1:\n',sequences[0][:10],'...',sequences[0][-10:])
+    #print('\nOne hot encoding of Sequence #1:\n',input_features[0].T)
 
 
     with open(labels_file,'r') as file: 
@@ -480,8 +638,8 @@ def ohe_Xy(sequences,labels):
     labels = np.array(labels).reshape(-1, 1)
     input_labels = one_hot_encoder.fit_transform(labels).toarray()
 
-    print('\nLabels:\n',labels.T)
-    print('\nOne-hot encoded labels:\n',input_labels.T)
+    #print('\nLabels:\n',labels.T)
+    #print('\nOne-hot encoded labels:\n',input_labels.T)
     
     return input_features, input_labels, sequences
 
@@ -491,8 +649,10 @@ def split_input_data(input_features,sequences):
     train_features, test_features, train_labels, test_labels = train_test_split(
         input_features, input_labels, test_size=0.25, random_state=42)
     return test_features, test_labels, train_features, train_labels
+```
 
 
+```python
 input_features, input_labels, sequences = ohe_Xy('/project_data/data_asset/DATADIR/sequences.txt','/project_data/data_asset/DATADIR/labels.txt')
 
 X,Y,_,_= split_input_data(input_features,input_labels)
@@ -500,28 +660,10 @@ X,Y,_,_= split_input_data(input_features,input_labels)
 print('Done')
 ```
 
-    One hot encoding of features and labels
-    -----------------------
-    
-    DNA Sequence #1:
-     CCGAGGGCTA ... CGCGGACACC
-    
-    One hot encoding of Sequence #1:
-     [[0. 0. 0. ... 1. 0. 0.]
-     [1. 1. 0. ... 0. 1. 1.]
-     [0. 0. 1. ... 0. 0. 0.]
-     [0. 0. 0. ... 0. 0. 0.]]
-    
-    Labels:
-     [['0' '0' '0' ... '0' '1' '1']]
-    
-    One-hot encoded labels:
-     [[1. 1. 1. ... 1. 0. 0.]
-     [0. 0. 0. ... 0. 1. 1.]]
     
     Splitting input data into train and test segments...
     Done
-
+</details>
 
 ### Score model using this data
 
@@ -531,16 +673,10 @@ score = loaded_model.evaluate(X, Y, verbose=0)
 print("%s: %.2f%%" % (loaded_model.metrics_names[1], score[1]*100))
 ```
 
-    acc: 98.40%
+    acc: 97.40%
 
 
-## Further analysis...
-
-
-```python
-test_features=X
-test_labels=Y
-```
+### Produce a confusion matrix
 
 
 ```python
@@ -548,8 +684,8 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 import itertools
 
-predicted_labels = loaded_model.predict(np.stack(test_features))
-cm = confusion_matrix(np.argmax(test_labels, axis=1), 
+predicted_labels = loaded_model.predict(np.stack(X))
+cm = confusion_matrix(np.argmax(Y, axis=1), 
                       np.argmax(predicted_labels, axis=1))
 print('Confusion matrix:\n',cm)
 
@@ -570,12 +706,14 @@ for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
 
     Confusion matrix:
      [[252   7]
-     [  2 239]]
+     [  6 235]]
 
 
 
-![png](images_train/output_45_1.png)
+![png](output_59_1.png)
 
+
+### Produce predictions and salience charts
 
 
 ```python
@@ -594,10 +732,16 @@ def compute_salient_bases(model, x):
 
 
 ```python
-sequences2=['GATACCCCCCCCACCCCCCCTCCCCCCCCCCCCCCCCCCGACCGAACTCC',
-            'GACCCCCCCCCCCCCTCCACCCCACCCCCCCCCCCCTCCCCCCCCCCCCC',
-           'GACCCCCCCCCCCCCTCCACCCCACCCCCCCCCCCCTCCCCCCCCCCCCC']
+sequences2=[
+'CCGAGGGCTATGGTTTGGAAGTTAGAACCCTGGGGCTTCTCGCGGACACC',
+'GAGTTTATATGGCGCGAGCCTAGTGGTTTTTGTACTTGTTTGTCGCGTCG',
+'GATCAGTAGGGAAACAAACAGAGGGCCCAGCCACATCTAGCAGGTAGCCT',
+'GTCCACGACCGAACTCCCACCTTGACCGCAGAGGTACCACCAGAGCCCTG',
+'GGCGACCGAACTCCAACTAGAACCTGCATAACTGGCCTGGGAGATATGGT',
+'AGACATTGTCAGAACTTAGTGTGCGCCGCACTGAGCGACCGAACTCCGAC']
 ```
+
+### One hot encode sequence data
 
 
 ```python
@@ -610,7 +754,7 @@ one_hot_encoder = OneHotEncoder(categories='auto')
 
 input_features2 = []
 for sequence2 in sequences2:
-    print(sequence2)
+    #print(sequence2)
     integer_encoded2 = integer_encoder.fit_transform(list(sequence2))
     integer_encoded2 = np.array(integer_encoded2).reshape(-1, 1)
     one_hot_encoded2 = one_hot_encoder.fit_transform(integer_encoded2)
@@ -618,24 +762,16 @@ for sequence2 in sequences2:
 
 np.set_printoptions(threshold=40)
 input_features2 = np.stack(input_features2)
-print("Example nucleotide sequence\n-----------------------")
-print('DNA Sequence2 #1:\n',sequences2[0][:10],'...',sequences2[0][-10:])
-print('One hot encoding of Sequence2 #1:\n',input_features2[0].T)
+#print("Example nucleotide sequence\n-----------------------")
+#print('DNA Sequence2 #1:\n',sequences2[0][:10],'...',sequences2[0][-10:])
+#print('One hot encoding of Sequence2 #1:\n',input_features2[0].T)
+print("Done")
 ```
 
-    GATACCCCCCCCACCCCCCCTCCCCCCCCCCCCCCCCCCGACCGAACTCC
-    GACCCCCCCCCCCCCTCCACCCCACCCCCCCCCCCCTCCCCCCCCCCCCC
-    GACCCCCCCCCCCCCTCCACCCCACCCCCCCCCCCCTCCCCCCCCCCCCC
-    Example nucleotide sequence
-    -----------------------
-    DNA Sequence2 #1:
-     GATACCCCCC ... ACCGAACTCC
-    One hot encoding of Sequence2 #1:
-     [[0. 1. 0. ... 0. 0. 0.]
-     [0. 0. 0. ... 0. 1. 1.]
-     [1. 0. 0. ... 0. 0. 0.]
-     [0. 0. 1. ... 1. 0. 0.]]
+    Done
 
+
+### Make predictions
 
 
 ```python
@@ -660,7 +796,7 @@ def saliency2(model,sequence_index,motif_start):
 
 
 ```python
-for i in range(3):
+for i in range(len(sequences2)):
     print('\nKnown motif: CGACCGAACTCC')
     print("Sequence:",sequences2[i])
     saliency2(loaded_model,i,37)
@@ -671,38 +807,74 @@ for i in range(3):
 
     
     Known motif: CGACCGAACTCC
-    Sequence: GATACCCCCCCCACCCCCCCTCCCCCCCCCCCCCCCCCCGACCGAACTCC
+    Sequence: CCGAGGGCTATGGTTTGGAAGTTAGAACCCTGGGGCTTCTCGCGGACACC
 
 
 
-![png](images_train/output_51_1.png)
+![png](output_68_1.png)
 
 
-    Nobind probability: 2.4192843284254195e-06 Bind probability: 0.999997615814209
+    Nobind probability: 0.9999997615814209 Bind probability: 2.558667233643064e-07
     
     -----------------------
     
     Known motif: CGACCGAACTCC
-    Sequence: GACCCCCCCCCCCCCTCCACCCCACCCCCCCCCCCCTCCCCCCCCCCCCC
+    Sequence: GAGTTTATATGGCGCGAGCCTAGTGGTTTTTGTACTTGTTTGTCGCGTCG
 
 
 
-![png](images_train/output_51_3.png)
+![png](output_68_3.png)
 
 
-    Nobind probability: 0.00022324708697851747 Bind probability: 0.9997767806053162
+    Nobind probability: 1.0 Bind probability: 3.5872671499959097e-09
     
     -----------------------
     
     Known motif: CGACCGAACTCC
-    Sequence: GACCCCCCCCCCCCCTCCACCCCACCCCCCCCCCCCTCCCCCCCCCCCCC
+    Sequence: GATCAGTAGGGAAACAAACAGAGGGCCCAGCCACATCTAGCAGGTAGCCT
 
 
 
-![png](images_train/output_51_5.png)
+![png](output_68_5.png)
 
 
-    Nobind probability: 0.00022324708697851747 Bind probability: 0.9997767806053162
+    Nobind probability: 0.9999997615814209 Bind probability: 2.0125524713421328e-07
+    
+    -----------------------
+    
+    Known motif: CGACCGAACTCC
+    Sequence: GTCCACGACCGAACTCCCACCTTGACCGCAGAGGTACCACCAGAGCCCTG
+
+
+
+![png](output_68_7.png)
+
+
+    Nobind probability: 3.4863812743424205e-06 Bind probability: 0.999996542930603
+    
+    -----------------------
+    
+    Known motif: CGACCGAACTCC
+    Sequence: GGCGACCGAACTCCAACTAGAACCTGCATAACTGGCCTGGGAGATATGGT
+
+
+
+![png](output_68_9.png)
+
+
+    Nobind probability: 0.0008279726607725024 Bind probability: 0.9991720914840698
+    
+    -----------------------
+    
+    Known motif: CGACCGAACTCC
+    Sequence: AGACATTGTCAGAACTTAGTGTGCGCCGCACTGAGCGACCGAACTCCGAC
+
+
+
+![png](output_68_11.png)
+
+
+    Nobind probability: 1.6434263443443342e-06 Bind probability: 0.9999983310699463
     
     -----------------------
 
@@ -714,41 +886,40 @@ Note: The compression is required by Keras
 
 
 ```python
-loaded_model.save('zen_bioinformatics_model.h5')
+loaded_model.save('zen_bioinformatics_model_v3nn5_r.h5')
 
-!tar -zcvf zen_bioinformatics_model.tgz zen_bioinformatics_model.h5
+!tar -zcvf zen_bioinformatics_model_v3nn5_r.tgz zen_bioinformatics_model_v3nn5_r.h5
 ```
 
-    zen_bioinformatics_model.h5
+    zen_bioinformatics_model_v3nn5_r.h5
 
 
-### Set the deployment parameters
+### Define the deployment metadata that will be passed to Watson Machine Learning
 
 
 ```python
 metadata={
-          client.repository.ModelMetaNames.NAME : "zen_bioinformatics_model_v5",
+          client.repository.ModelMetaNames.NAME : "zen_bioinformatics_model_v3nn5_r_"+ts,
           client.repository.ModelMetaNames.FRAMEWORK_NAME :"tensorflow",
           client.repository.ModelMetaNames.FRAMEWORK_VERSION : "1.14",
           client.repository.ModelMetaNames.FRAMEWORK_LIBRARIES : [{'name':'keras', 'version': '2.1.6'}]}
 
-#model_details = client.repository.store_model(run_uid, meta_props=metadata) 
-model_details = client.repository.store_model( model="zen_bioinformatics_model.tgz", meta_props=metadata )
+model_details = client.repository.store_model( model="zen_bioinformatics_model_v3nn5_r.tgz", meta_props=metadata )
 
 model_uid = client.repository.get_model_uid(model_details)
 print("model_uid: ", model_uid)
 ```
 
-    model_uid:  44af0020-eeda-4836-b3c6-6f074f2ddcc8
+    model_uid:  7bfbfe1b-9092-4cfd-b75f-797c0b2774dc
 
 
 ### Deploy the model
 
 
 ```python
-deployment_name  = "zen_bioinformatics_deployment_v5"
-deployment_desc  = "Deployment of the bioinformatics model v5"
-deployment_details = client.deployments.create(model_uid, name="zen_bioinformatics_deployment_v5" )
+deployment_name  = "zen_bioinformatics_deployment_v3nn5(r)_"+ts
+deployment_desc  = "Deployment of the bioinformatics model v4nn55_"+ts
+deployment_details = client.deployments.create(model_uid, name="zen_bioinformatics_deployment_v3nn5(r)_" +ts)
 
 ```
 
@@ -756,7 +927,7 @@ deployment_details = client.deployments.create(model_uid, name="zen_bioinformati
     
     #######################################################################################
     
-    Synchronous deployment creation for uid: '44af0020-eeda-4836-b3c6-6f074f2ddcc8' started
+    Synchronous deployment creation for uid: '7bfbfe1b-9092-4cfd-b75f-797c0b2774dc' started
     
     #######################################################################################
     
@@ -767,11 +938,13 @@ deployment_details = client.deployments.create(model_uid, name="zen_bioinformati
     
     
     ------------------------------------------------------------------------------------------------
-    Successfully finished deployment creation, deployment_uid='ca493f3a-9e50-44f8-82e3-b10b99899a55'
+    Successfully finished deployment creation, deployment_uid='0f0510b9-fb4e-49d2-a19d-64cbe828334a'
     ------------------------------------------------------------------------------------------------
     
     
 
+
+### Obtain a scoring endpoint for online use of the  trained model
 
 
 ```python
@@ -779,19 +952,97 @@ scoring_endpoint = client.deployments.get_scoring_url(deployment_details)
 print("scoring_endpoint: ", scoring_endpoint)
 ```
 
-    scoring_endpoint:  https://us-south.ml.cloud.ibm.com/v3/wml_instances/615a5483-2072-4c9d-8d76-3fed527c6b59/deployments/ca493f3a-9e50-44f8-82e3-b10b99899a55/online
+    scoring_endpoint:  https://us-south.ml.cloud.ibm.com/v3/wml_instances/615a5483-2072-4c9d-8d76-3fed527c6b59/deployments/0f0510b9-fb4e-49d2-a19d-64cbe828334a/online
 
 
-## Some time later, again...
+### Save the endpoint as a project asset
 
-### Set up some training data and call the model
+
+```python
+epfn='bioinformatics_model_v3nn5_'+ts+ '.url'
+with open(epfn,'w') as fd:
+    fd.write(scoring_endpoint)
+```
+
+
+```python
+!cp {epfn} /project_data/data_asset/.
+```
+
+## List deployments
+
+
+```python
+client.deployments.list()
+```
+
+    ------------------------------------  -----------------------------------------------------  ------  --------------  ------------------------  ---------------  -------------
+    GUID                                  NAME                                                   TYPE    STATE           CREATED                   FRAMEWORK        ARTIFACT TYPE
+    0f0510b9-fb4e-49d2-a19d-64cbe828334a  zen_bioinformatics_deployment_v3nn5(r)_20200302233424  online  DEPLOY_SUCCESS  2020-03-03T00:09:02.519Z  tensorflow-1.14  model
+    c042c672-5111-4322-a7eb-cf0c4d3177d3  zen_bioinformatics_deployment_v3nn5(r)                 online  DEPLOY_SUCCESS  2020-03-01T02:07:53.584Z  tensorflow-1.14  model
+    eab67438-b5d0-42f4-ad0f-b46cc887f936  ws_bioinformatic_deployment_v5                         online  DEPLOY_SUCCESS  2020-02-26T00:34:13.106Z  tensorflow-1.14  model
+    ------------------------------------  -----------------------------------------------------  ------  --------------  ------------------------  ---------------  -------------
+
+
+## SOME MORE TIME LATER...
+
+### Retrieve the scoring endpoint from project asset storage
+
+
+```python
+!ls /project_data/data_asset/
+```
+
+    DATADIR
+    DATADIR.zip
+    Rnorvegicus.fasta
+    __pycache__
+    apikey.json
+    default_commit_hash
+    icoskeys.txt
+    labels_txt_54t5ig9cxtblv9s5lvrpc3c1g
+    male.hg19.fasta
+    male.hg19.fasta copy.fai
+    male.hg19.fasta.fai
+    neural_network_v5.py
+    new_neural_network2.py
+    new_neural_network4.py
+    object_subfolder
+    results.csv
+    sra_repository
+    swab_Illumina_fastq_7zts604faspjjdibpea5dk5pm
+    tf-model3.zip
+    tf-model4
+    tf-model4.zip
+    tf_model_v5
+    tf_model_v5.zip
+    tf_model_v5_20200302233424
+
+
+
+```python
+!cat /project_data/data_asset/tf_model_v5_20200302233424/*url
+```
+
+    https://us-south.ml.cloud.ibm.com/v3/wml_instances/615a5483-2072-4c9d-8d76-3fed527c6b59/deployments/0f0510b9-fb4e-49d2-a19d-64cbe828334a/online
+
+
+```python
+scoring_endpoint="https://us-south.ml.cloud.ibm.com/v3/wml_instances/615a5483-2072-4c9d-8d76-3fed527c6b59/deployments/0f0510b9-fb4e-49d2-a19d-64cbe828334a/online"
+```
+
+### Set up a one-hot encoded data payload to be evaluated
 
 
 ```python
 payload = { "values" : X.tolist() }
-sc=client.deployments.score(scoring_endpoint, payload)
+```
 
-print(len(sc['values']), len(X))
+### Score the data
+
+
+```python
+sc=client.deployments.score(scoring_endpoint, payload)
 
 print(sc['fields'])
 
@@ -799,12 +1050,16 @@ for item in sc['values'][0:3]:
     print(item)
 ```
 
-    500 500
     ['prediction', 'prediction_classes', 'probability']
-    [[6.921019917172089e-07, 0.9999992847442627], 1, [6.921019917172089e-07, 0.9999992847442627]]
-    [[0.9999758005142212, 2.419890370219946e-05], 0, [0.9999758005142212, 2.419890370219946e-05]]
-    [[1.0212556844635401e-05, 0.9999897480010986], 1, [1.0212556844635401e-05, 0.9999897480010986]]
+    [[1.8571682858237182e-07, 0.9999997615814209], 1, [1.8571682858237182e-07, 0.9999997615814209]]
+    [[0.9999996423721313, 3.675713173834083e-07], 0, [0.9999996423721313, 3.675713173834083e-07]]
+    [[0.00014102058776188642, 0.9998589754104614], 1, [0.00014102058776188642, 0.9998589754104614]]
 
-![png](images/FullProcess.png)
+
+
+```python
+
+```
+
 
 [![return](../buttons/return.png)](../README.md#WML)
