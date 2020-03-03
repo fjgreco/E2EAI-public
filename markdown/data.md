@@ -1,7 +1,9 @@
 ## Data Collection and Organization
 
-Data is uploaded to ICOS and organized into sequence.text and label.txt files.
+![png](images/assay_data_.png)
 
-The files are cataloged and added to the project as connected data.
+Assay data is uploaded to ICOS. 
+
+The file is cataloged and added to the project as connected data.
 
 [![return](../buttons/return.png)](../README.md#Data)
