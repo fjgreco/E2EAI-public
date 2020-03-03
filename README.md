@@ -8,7 +8,7 @@
 
 [Jump to Additional Resources](#Additional-Resources)
 
-## Researcher: Upload and Catalog Data (Collect & Organize)
+## Researcher: Upload and Catalog Assay Data (Collect & Organize)
 
 [![Data](./buttons/buData.png)](./markdown/data.md)
 
