@@ -71,8 +71,7 @@ def main():
     labels_file = os.path.join(DATA_DIR, FLAGS.labels_file)
     
 
-    
-#  "One-hot" encode the input data (Common practice for categorical machine learning models )     
+#  "One-hot" encode the input data (Common practice for handling categorical data in numeric models )     
     
     with open(sequences_file,'r') as file: 
         raw_sequences=file.read()
@@ -86,6 +85,7 @@ def main():
     integer_encoder = LabelEncoder()  
     # The OneHotEncoder converts an array of integers to a sparse matrix where 
     # each row corresponds to one possible value of each feature.
+    
     one_hot_encoder = OneHotEncoder(categories='auto')   
     input_features = []
 
@@ -97,10 +97,7 @@ def main():
 
     np.set_printoptions(threshold=40)
     input_features = np.stack(input_features)
-    print("Example sequence\n-----------------------")
-    print('DNA Sequence #1:\n',sequences[0][:10],'...',sequences[0][-10:])
-    print('One hot encoding of Sequence #1:\n',input_features[0].T)
-
+ 
 
     with open(labels_file,'r') as file: 
         raw_labels=file.read()
@@ -112,9 +109,38 @@ def main():
     one_hot_encoder = OneHotEncoder(categories='auto')
     labels = np.array(labels).reshape(-1, 1)
     input_labels = one_hot_encoder.fit_transform(labels).toarray()
+   
+##  A sample of the encoded data is written to the log.
+
+<details>    
+    print("Example sequence\n-----------------------")
+    print('DNA Sequence #1:\n',sequences[0][:10],'...',sequences[0][-10:])
+    print('One hot encoding of Sequence #1:\n',input_features[0].T)
 
     print('Labels:\n',labels.T)
     print('One-hot encoded labels:\n',input_labels.T)
+
+</details>
+
+    Using TensorFlow backend.
+    
+    Example gene sequence represetation
+    -----------------------
+    DNA Sequence #1:
+     CCGAGGGCTA ... CGCGGACACC
+     
+    One hot encoding of Sequence #1:
+     [[0. 0. 0. ... 1. 0. 0.]
+     [1. 1. 0. ... 0. 1. 1.]
+     [0. 0. 1. ... 0. 0. 0.]
+     [0. 0. 0. ... 0. 0. 0.]]
+     
+    Labels:
+     [['0' '0' '0' ... '0' '1' '1']]
+     
+    One-hot encoded labels:
+     [[1. 1. 1. ... 1. 0. 0.]
+     [0. 0. 0. ... 0. 1. 1.]]
 
 
 # Standard practice is to split the input data into training, test, and validation sets
@@ -140,11 +166,11 @@ def main():
     history = model.fit(train_features, train_labels, epochs=50, verbose=0, validation_split=0.25)
 
 
-# Our code produces an assortment of outputs, which we save to our RESULTS location
+# An assortment of outputs is saved to the RESULTS location
+Here, we save to a folder in the CP4D file system.
     
     output_model_folder = os.environ["RESULT_DIR"]
     
-
 ### The trained model 
 
  	h5_filename  = "bioinformatics_model.h5"
@@ -183,29 +209,7 @@ def main():
     os.system(cmdstring4)
 
 
-##  A sense of the encoded data (written to the log)
-
-    Using TensorFlow backend.
-    
-    Example gene sequence represetation
-    -----------------------
-    DNA Sequence #1:
-     CCGAGGGCTA ... CGCGGACACC
-     
-    One hot encoding of Sequence #1:
-     [[0. 0. 0. ... 1. 0. 0.]
-     [1. 1. 0. ... 0. 1. 1.]
-     [0. 0. 1. ... 0. 0. 0.]
-     [0. 0. 0. ... 0. 0. 0.]]
-     
-    Labels:
-     [['0' '0' '0' ... '0' '1' '1']]
-     
-    One-hot encoded labels:
-     [[1. 1. 1. ... 1. 0. 0.]
-     [0. 0. 0. ... 0. 1. 1.]]
-
-## The Neural Network Topology
+## A table depicting the neural network topology
 
     Model: "sequential_1"
     _________________________________________________________________
@@ -254,7 +258,6 @@ def main():
     No-bind probability: 2.4192843284254195e-06 Bind probability: 0.999997615814209
  
 ## Everything ends up in the RESULTS folder   
-
    
     -rw-r-----. 1 wsuser watsonstudio 108728 Feb 25 19:58 bioinformatics_model.h5
     -rw-r-----. 1 wsuser watsonstudio   1988 Feb 25 19:58 bioinformatics_model.json
@@ -268,13 +271,12 @@ def main():
     -rw-r-----. 1 wsuser watsonstudio  42168 Feb 25 19:58 bioinformatics_model_weights.h5
          
     
-# Thus far everything can theoretically run anywhere- like on a laptop. But,...
+# Thus far, everything can potentially run anywhere- like on a laptop. But,...
    
-# The bioinformatic data can be very large
+# Bioinformatic data can be very large.
 
-# The models can be very large and computationally complex
+# The models can be very large and computationally complex.
 
 ![png](images/LargeNetwork.png)
-
 
 [![return](../buttons/return.png)](../README.md#NeuralNetwork)
