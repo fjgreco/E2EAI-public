@@ -30,6 +30,7 @@ storage_credentials = project.get_storage_metadata()
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 ```
+</details>
 
 ### WML Client Version 1.0378 setup for demo purposes
 
