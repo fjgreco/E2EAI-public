@@ -1,6 +1,6 @@
 ## Data Collection and Organization
 
-![png](images/assay_data_.png)
+![png](images/assay_data.png)
 
 Assay data is uploaded to ICOS. 
 
