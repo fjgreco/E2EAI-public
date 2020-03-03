@@ -16,15 +16,9 @@
 
 [![Neural Network](./buttons/buNeuralNetwork.png)](./markdown/neural_network.md)
 
-## Developer/Data Scientist: Train and Evaluate using Watson Machine Learning (Organize & Analyze)
+## Developer/Data Scientist: Train, Evaluate, and Deploy using Watson Machine Learning (Organize, Analyze, Infuse)
 
 [![WML](./buttons/buTrain.png)](./markdown/wml.md)
-
-[![Evaluation](./buttons/buEvaluation.png)](./markdown/evaluate.md)
-
-## Developer: Deploy (Infuse)
-
-[![Deployment](./buttons/buDeployment.png)](./markdown/deployment.md)
 
 ## Practitioner/Researcher/Data Scientist: Use
 
