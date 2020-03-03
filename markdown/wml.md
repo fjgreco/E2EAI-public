@@ -56,6 +56,7 @@ print("Done")
 ```
 
     Done
+
 </details>
 
 ## Connect to Watson Machine Learning
@@ -85,6 +86,7 @@ print('client.version:', client.version)
 ## Connect to IBM Cloud Object Storage and define search script
 
 <details>
+
 ```python
 icos_credentials={
   "apikey": "uSYOgQRcMVikimnEwccgQcNW7xwp-ckXyB-8H-qhb2u-",
@@ -130,6 +132,7 @@ cos_client = ibm_boto3.client("s3",
     config=Config(signature_version="oauth"),
     endpoint_url=COS_ENDPOINT
 )
+
 def get_download_list(bucket_name,model_location,cos=cos):
     
     print("Retrieving relevant bucket contents from: {} Model_location: {}\n".format(bucket_name,model_location)) 
