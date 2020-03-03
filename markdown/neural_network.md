@@ -208,10 +208,11 @@ Here, we save to a folder in the CP4D file system.
 </details>
 
 ### The trained parameters i.e., the weights of our model
+<details>
     model.save_weights("bioinformatics_model_weights.h5")
     cmdstring4 = 'cp ' + "bioinformatics_model_weights.h5" + ' '+  output_model_folder
     os.system(cmdstring4)
-
+</details>
 
 ## A table depicting the neural network topology
 
