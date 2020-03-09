@@ -166,8 +166,7 @@ def main():
     history = model.fit(train_features, train_labels, epochs=50, verbose=0, validation_split=0.25)
 
 
-# An assortment of outputs is saved to the RESULTS location
-Here, we save to a folder in the CP4D file system.
+# Training phase outputs are saved to the RESULTS location
     
     output_model_folder = os.environ["RESULT_DIR"]
     
@@ -253,16 +252,8 @@ Here, we save to a folder in the CP4D file system.
 
 ![png](images_train/output_30_0.png)
 
-## Saliency Graph
-
-    Known motif: CGACCGAACTCC
-    Sequence: GATACCCCCCCCACCCCCCCTCCCCCCCCCCCCCCCCCCGACCGAACTCC
-
-![png](images_train/output_51_1.png)
-
-    No-bind probability: 2.4192843284254195e-06 Bind probability: 0.999997615814209
  
-## Everything ends up in the RESULTS folder...   
+## The RESULTS folder contents  
    
     -rw-r-----. 1 wsuser watsonstudio 108728 Feb 25 19:58 bioinformatics_model.h5
     -rw-r-----. 1 wsuser watsonstudio   1988 Feb 25 19:58 bioinformatics_model.json
@@ -274,9 +265,20 @@ Here, we save to a folder in the CP4D file system.
     -rw-r-----. 1 wsuser watsonstudio  25582 Feb 25 19:58 bioinformatics_model_loss.png
     -rw-r-----. 1 wsuser watsonstudio   1036 Feb 25 19:58 bioinformatics_model_scoring.txt
     -rw-r-----. 1 wsuser watsonstudio  42168 Feb 25 19:58 bioinformatics_model_weights.h5
-         
+ 
+# Training phase outputs obtainable from RESULTS location are subsequently used to make inferences
+
+
+## Saliency Graph and binding prediction
+
+    Known motif: CGACCGAACTCC
+    Sequence: GATACCCCCCCCACCCCCCCTCCCCCCCCCCCCCCCCCCGACCGAACTCC
+
+![png](images_train/output_51_1.png)
+
+    No-bind probability: 2.4192843284254195e-06 Bind probability: 0.999997615814209        
     
-## Thus far, everything can potentially run anywhere- like on a laptop. But,...
+## Thus far, everything can potentially run anywhere e.g., on a laptop or on  local cluster. But,...
 - Bioinformatic data can be very large.
 - The models can be very large and computationally complex.
 
