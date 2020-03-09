@@ -278,7 +278,9 @@ def main():
 
     No-bind probability: 2.4192843284254195e-06 Bind probability: 0.999997615814209        
     
-## Thus far, everything can potentially run anywhere e.g., on a laptop or on  local cluster. But,...
+## Thus far, everything can potentially run anywhere e.g., on a laptop or a local cluster. 
+
+But, 
 - Bioinformatic data can be very large.
 - The models can be very large and computationally complex.
 
