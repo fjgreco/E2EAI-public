@@ -241,16 +241,16 @@ def main():
     
 ## Accuracy Plot
 
-![png](images_train/output_28_0.png)
+![png](images_train/output_36_0.png)
 
 
 ## Loss Plot
 
-![png](images_train/output_29_0.png)
+![png](images_train/output_37_0.png)
 
 ## Confusion Matrix
 
-![png](images_train/output_30_0.png)
+![png](images_train/output_38_0.png)
 
  
 ## The RESULTS folder contents  
@@ -274,7 +274,7 @@ def main():
     Known motif: CGACCGAACTCC
     Sequence: GATACCCCCCCCACCCCCCCTCCCCCCCCCCCCCCCCCCGACCGAACTCC
 
-![png](images_train/output_51_1.png)
+![png](images_train/output_68_1.png)
 
     No-bind probability: 2.4192843284254195e-06 Bind probability: 0.999997615814209        
     
