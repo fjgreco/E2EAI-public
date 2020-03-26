@@ -4,7 +4,7 @@
 
 ## Context
 
-![png](images/16-Integrated-Services.png)
+![png](./markdown/images/16-Integrated-Services.png)
 
 [![Context](./buttons/buContext.png)](./markdown/context.md)
 
