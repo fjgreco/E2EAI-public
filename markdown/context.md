@@ -1,9 +1,11 @@
 ## Context
 
+![png](images/16-Integrated-Services.png)
+
 ![png](images/10-SimplifiedProcess.png)
 ![png](images/12-Training.png)
 ![png](images/13-Running.png)
-![png](images/16-Integrated-Services.png)
+
 ![png](images/17-IntegratedServices-Catalog.png)
 ![png](images/18-Integrated-Annotated.png)
 
