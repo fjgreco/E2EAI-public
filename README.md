@@ -4,6 +4,8 @@
 
 ## Context
 
+![png](images/16-Integrated-Services.png)
+
 [![Context](./buttons/buContext.png)](./markdown/context.md)
 
 [Jump to Additional Resources](#Additional-Resources)
