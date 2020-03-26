@@ -1,6 +1,6 @@
 ## Context
 
-![png](images/10-SimplifiedProcess-2.png)
+![png](images/10-SimplifiedProcess.png)
 ![png](images/12-Training.png)
 ![png](images/13-Running.png)
 ![png](images/16-Integrated-Services.png)
