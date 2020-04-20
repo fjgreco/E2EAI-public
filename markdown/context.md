@@ -6,9 +6,6 @@
 ![png](images/12-Training.png)
 ![png](images/13-Running.png)
 
-![png](images/17-IntegratedServices-Catalog.png)
-![png](images/18-Integrated-Annotated.png)
-
 A researcher performes a biological assay which produces a data set that labels DNA sequences with protein binding properties.
 
 The researcher seeks a model that can learn to identify whether an target DNA sequence contains similar binding properties.
