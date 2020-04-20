@@ -1,4 +1,4 @@
-#  Applied Precision Medicine - Bioinformatics as a Service
+#  Bioinformatics - End2End AI
 
 [ProjectPage](https://fjgreco.github.io/himss2020/)
 
