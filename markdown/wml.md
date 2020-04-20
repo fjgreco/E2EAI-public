@@ -2,6 +2,10 @@
 
 ![png](images/WMLProcess.png)
 
+![png](images/17-IntegratedServices-Catalog.png)
+
+![png](images/18-Integrated-Annotated.png)
+
 
 # Bioinformatics Modeling Using Watson Machine Learning
 
