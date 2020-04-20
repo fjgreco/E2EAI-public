@@ -2,7 +2,7 @@
 
 ![png](images/simplemodel.png)
 
-#### Placeholder
+Source: A Primer on Deep Learning in Genomics - Public
 
 ## The up front package imports
 
