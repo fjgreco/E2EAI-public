@@ -3,9 +3,9 @@
 ![png](images/assay_data.png)
 
 We use a synthetic data generator to create a set of base sequences.
-A gene notif is inserted into a subset of these sequences.
-Sequences without the motif are labeled as not having a binding probperty.
+A  motif  pattern is inserted into a subset of these sequences.
 Sequences with the motif are labled as having a binding property.
+Sequences without the motif are labeled as not having a binding probperty.
 
 Assay data is uploaded to ICOS. 
 
