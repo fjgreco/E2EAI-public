@@ -748,7 +748,7 @@ sequences2=[
 'AGACATTGTCAGAACTTAGTGTGCGCCGCACTGAGCGACCGAACTCCGAC']
 ```
 
-### One hot encode sequence data
+### One hot encode the new target sequence data
 
 <details>
 
