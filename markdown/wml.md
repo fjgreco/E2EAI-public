@@ -1,6 +1,4 @@
-
-
-![png](images/WMLProcess.png)
+![png](images/CommonProjectFramework.png)
 
 ![png](images/17-IntegratedServices-Catalog.png)
 
