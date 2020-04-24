@@ -1,3 +1,5 @@
+![png](images/CommonProjectFrameworl.png)
+
 ## Post Deployment Use
 
 ## SOME MORE TIME LATER...
