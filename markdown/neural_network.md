@@ -1,6 +1,9 @@
 # An example neural network program to identify protein binding patterns
 
 ![png](images/simplemodel.png)
+![png](images/10-SimplifiedProcess.png)
+![png](images/12-Training.png)
+![png](images/13-Running.png)
 
 Source: A Primer on Deep Learning in Genomics - Public
 
