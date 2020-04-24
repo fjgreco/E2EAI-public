@@ -1,11 +1,31 @@
 # An example neural network program to identify protein binding patterns
 
 ![png](images/simplemodel.png)
-![png](images/10-SimplifiedProcess.png)
-![png](images/12-Training.png)
-![png](images/13-Running.png)
 
 Source: A Primer on Deep Learning in Genomics - Public
+
+![png](images/10-SimplifiedProcess.png)
+
+# A table depicting the neural network topology (without LSTM layer)
+
+    Model: "sequential_1"
+    _________________________________________________________________
+    Layer (type)                 Output Shape              Param #   
+    =================================================================
+    conv1d_1 (Conv1D)            (None, 39, 32)            1568      
+    _________________________________________________________________
+    max_pooling1d_1 (MaxPooling1 (None, 9, 32)             0         
+    _________________________________________________________________
+    flatten_1 (Flatten)          (None, 288)               0         
+    _________________________________________________________________
+    dense_1 (Dense)              (None, 16)                4624      
+    _________________________________________________________________
+    dense_2 (Dense)              (None, 2)                 34        
+    =================================================================
+    Total params: 6,226
+    Trainable params: 6,226
+    Non-trainable params: 0
+    _________________________________________________________________
 
 ## The up front package imports
 
