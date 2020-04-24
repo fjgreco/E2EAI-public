@@ -495,7 +495,7 @@ client.repository.list()
     eab67438-b5d0-42f4-ad0f-b46cc887f936  ws_bioinformatic_deployment_v5                    2020-02-26T00:34:13.106Z  tensorflow-1.14  online deployment
     ------------------------------------  ------------------------------------------------  ------------------------  ---------------  -----------------
 
-
+<details>
 
 ```python
 !ls /project_data/data_asset
@@ -534,6 +534,8 @@ print ('Effective timestamp: ',ts)
 ```
 
     Effective timestamp:  20200302233424
+
+</details>
 
 
 ### Retrieve the model artifacts to working storage...
