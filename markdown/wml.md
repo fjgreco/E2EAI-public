@@ -750,6 +750,7 @@ sequences2=[
 
 ### One hot encode sequence data
 
+<details>
 
 ```python
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
@@ -776,7 +777,8 @@ print("Done")
 ```
 
     Done
-
+    
+</details>
 
 ### Make predictions
 
