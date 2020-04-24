@@ -1,4 +1,4 @@
-![png](images/CommonProjectFrameworl.png)
+![png](images/CommonProjectFramework.png)
 
 ## Post Deployment Use
 
