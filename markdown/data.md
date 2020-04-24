@@ -1,5 +1,6 @@
-![png](images/CommonProjectFramework.png)
 ## Data Collection and Organization
+
+![png](images/CommonProjectFramework.png)
 
 ![png](images/assay_data.png)
 
