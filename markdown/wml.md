@@ -7,13 +7,15 @@
 ![png](images/18-Integrated-Annotated.png)
 
 
+### Preliminary:  Instantiate a Watson Studio project , WML, ICOS (done outside of this notebook)
+
 ```python
 from project_lib import Project
 project = Project.access()
 storage_credentials = project.get_storage_metadata()
 ```
 
-### Preliminary:  Instantiate a Watson Studio project , WML, ICOS (done outside of this notebook)
+
 <details>
 
 ```python
