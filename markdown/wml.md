@@ -203,6 +203,8 @@ if not os.path.isfile( filename ):
 
 ### We use a timestamp to distinguish different training runs and results
 
+<details>
+
 ```python
 import datetime
 
@@ -214,6 +216,7 @@ print(ts)
     Timestamp: 20200302233424
     20200302233424
 
+</details>
 
 ### The following code identifies the following WML metadata:
 <ul>
