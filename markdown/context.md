@@ -1,5 +1,7 @@
 ## Context
 
+![png](./images/CommonProjectFramework.png)
+
 ![png](images/16-Integrated-Services.png)
 
 ![png](images/10-SimplifiedProcess.png)
