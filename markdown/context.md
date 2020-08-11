@@ -1,4 +1,4 @@
-## Context
+## Scientific Use Case
 
 ![png](./images/CommonProjectFramework.png)
 
