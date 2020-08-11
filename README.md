@@ -23,6 +23,11 @@
 
 [![WML](./buttons/buTrain.png)](./markdown/wml.md)
 
+
+## Evaluate
+
+[![EVALUATION](./buttons/buEvaluation.png)](./markdown/evaluation.md)
+
 ## Practitioner/Researcher/Data Scientist: Use
 
 [![Deployment](./buttons/buUse.png)](./markdown/use.md)
