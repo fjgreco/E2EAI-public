@@ -1,4 +1,4 @@
-#  Bioinformatics - End2End AI
+# Bioinformatics - End2End AI
 
 [ProjectPage](https://fjgreco.github.io/himss2020/)
 
