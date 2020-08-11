@@ -1,6 +1,6 @@
 # Bioinformatics - End2End AI
 
-[ProjectPage](https://fjgreco.github.io/himss2020/)
+[ProjectPage](https://fjgreco.github.io/E2EAI-public/)
 
 ## Motivation
 ![png](./markdown/images/OverTheFence.png)
