@@ -2,8 +2,6 @@
 
 ![png](images/CommonProjectFramework.png)
 
-![png](images/17-IntegratedServices-Catalog.png)
-
 ![png](images/18-Integrated-Annotated.png)
 
 
