@@ -4,7 +4,6 @@
 
 Source: A Primer on Deep Learning in Genomics - Public
 
-![png](images/10-SimplifiedProcess.png)
 
 # A table depicting the neural network topology (without LSTM layer)
 

@@ -4,6 +4,8 @@
 
 A researcher performes a biological assay which produces a data set that labels DNA sequences with protein binding properties.
 
+![png](images/10-SimplifiedProcess.png)
+
 The researcher seeks a model that can learn to identify whether an target DNA sequence contains similar binding properties.
 
 A data scientist is engaged to help develop a model.
