@@ -9,7 +9,7 @@
 
 ## End-to-End Pipeline
 
-[![Pipeline](./buttons/buData.png)](./markdown/pipeline.md)
+[![Pipeline](./buttons/buComputationalPipeline.png)](./markdown/pipeline.md)
 
 [Jump to Additional Resources](#Additional-Resources)
 
