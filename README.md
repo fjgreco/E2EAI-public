@@ -7,6 +7,10 @@
 
 [![Context](./buttons/buContext.png)](./markdown/context.md)
 
+## End-to-End Pipeline
+
+![PIPELINE](./buttons/buData.png)](./markdown/pipeline.md)
+
 [Jump to Additional Resources](#Additional-Resources)
 
 ## Researcher: Upload and Catalog Assay Data (Collect & Organize)
