@@ -2,11 +2,8 @@
 
 [ProjectPage](https://fjgreco.github.io/himss2020/)
 
-## Context
+## Motivation
 ![png](./markdown/images/OverTheFence.png)
-![png](./markdown/images/IntegrationOverview.png)
-![png](./markdown/images/CommonProjectFramework.png)
-
 
 [![Context](./buttons/buContext.png)](./markdown/context.md)
 
