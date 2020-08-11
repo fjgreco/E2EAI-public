@@ -16,8 +16,6 @@ A data scientist is engaged to help develop a model.
 
 A developer is also engaged to facilitate software development and data handling.
 
-![png](images/17-IntegratedServices-Catalog.png)
-
 The following project environment has been setup:
 
  - A Cloud Pak for Data / Watson Studio project called HIMS2020-bioinformatics.
