@@ -28,6 +28,11 @@
 
 [![EVALUATION](./buttons/buEvaluation.png)](./markdown/evaluation.md)
 
+## Deployment
+
+[![DEPLOYMENT](./buttons/buDeployment.png)](./markdown/deployment.md)
+
+
 ## Practitioner/Researcher/Data Scientist: Use
 
 [![Deployment](./buttons/buUse.png)](./markdown/use.md)
