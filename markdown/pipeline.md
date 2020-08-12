@@ -1,4 +1,4 @@
-## End-to-End Analytical Pipeline 
+## End-to-End Analytic Computational Pipeline 
 
 ![png](./images/CommonProjectFramework.png)
 
