@@ -2,7 +2,7 @@
 
 [ProjectPage](https://fjgreco.github.io/E2EAI-public/)
 
-## Motivation
+## Motivating Use Case
 ![png](./markdown/images/OverTheFence.png)
 
 [![Context](./buttons/buContext.png)](./markdown/context.md)

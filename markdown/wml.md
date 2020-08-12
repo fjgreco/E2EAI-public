@@ -4,6 +4,8 @@
 
 ![png](images/18-Integrated-Annotated.png)
 
+![png](images/WML-081120.png)
+
 
 ### Preliminary:  Instantiate a Watson Studio project , WML, ICOS (done outside of this notebook)
 
