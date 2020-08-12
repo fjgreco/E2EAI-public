@@ -1,7 +1,5 @@
 ## Data Collection and Organization
 
-![png](images/CommonProjectFramework.png)
-
 ![png](images/assay_data.png)
 
 We use a synthetic data generator to create a set of base sequences.
