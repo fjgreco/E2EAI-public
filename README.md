@@ -2,10 +2,10 @@
 
 [ProjectPage](https://fjgreco.github.io/E2EAI-public/)
 
-## Motivating Use Case
+## Motivation
 ![png](./markdown/images/OverTheFence.png)
 
-[![Context](./buttons/buContext.png)](./markdown/context.md)
+[![Context](./buttons/buScientificUseCase.png)](./markdown/context.md)
 
 ## End-to-End Analytic Computational Pipeline
 
