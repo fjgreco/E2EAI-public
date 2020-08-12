@@ -309,3 +309,4 @@ But,
 ![png](images/LargeNetwork.png)
 
 [![return](../buttons/return.png)](../README.md#NeuralNetwork)
+[![return](../buttons/next.png)](./neural_wml.md)
