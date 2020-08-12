@@ -28,11 +28,11 @@
 [![WML](./buttons/buTrain.png)](./markdown/wml.md)
 
 
-## Evaluate
+## Data Scientist/Researcher: Evaluate
 
 [![EVALUATION](./buttons/buEvaluation.png)](./markdown/evaluation.md)
 
-## Deployment
+## Developer: Deploy
 
 [![DEPLOYMENT](./buttons/buDeployment.png)](./markdown/deployment.md)
 
