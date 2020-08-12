@@ -5,6 +5,8 @@
 ## Motivation
 ![png](./markdown/images/OverTheFence.png)
 
+## Scientific Use Case
+
 [![Context](./buttons/buScientificUseCase.png)](./markdown/context.md)
 
 ## End-to-End Analytic Computational Pipeline
