@@ -2,8 +2,6 @@
 
 ![png](./images/CommonProjectFramework.png)
 
-![png](images/18-Integrated-Annotated.png)
-
 ![png](./images/E2EAI-081120.png)
 
 A researcher performes a biological assay which produces a data set that labels DNA sequences with protein binding properties.
