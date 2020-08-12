@@ -2,8 +2,6 @@
 
 ![png](images/CommonProjectFramework.png)
 
-![png](images/18-Integrated-Annotated.png)
-
 ![png](images/WML-081120.png)
 
 
