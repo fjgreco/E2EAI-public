@@ -4,9 +4,6 @@ Transcription Binding Factors
 
 ![png](images/10-SimplifiedProcess.png)
 
-End-to-End Analytical Process
-
-![png](./images/CommonProjectFramework.png)
 
 A researcher performes a biological assay which produces a data set that labels DNA sequences with protein binding properties.
 
