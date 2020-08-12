@@ -7,7 +7,7 @@
 
 [![Context](./buttons/buContext.png)](./markdown/context.md)
 
-## End-to-End Analytic Pipeline
+## End-to-End Analytic Computational Pipeline
 
 [![Pipeline](./buttons/buComputationalPipeline.png)](./markdown/pipeline.md)
 
