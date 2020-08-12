@@ -11,7 +11,7 @@
 
 ## End-to-End Analytic Computational Pipeline
 
-[![Pipeline](./buttons/buComputationalPipeline.png)](./markdown/pipeline.md)
+[![Pipeline](./buttons/buPipeline.png)](./markdown/pipeline.md)
 
 [Jump to Additional Resources](#Additional-Resources)
 
