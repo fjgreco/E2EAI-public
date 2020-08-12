@@ -7,7 +7,7 @@
 
 ## Scientific Use Case
 
-[![Context](./buttons/buScientificUseCase.png)](./markdown/context.md)
+[![Context](./buttons/buScientificUseCase.png)](./markdown/use_case_.md)
 
 ## End-to-End Analytic Computational Pipeline
 
