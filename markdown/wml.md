@@ -173,10 +173,7 @@ import os
 import wget
 filename = 'tf_model_v5.zip'
 
-#url= 'https://github.com/fjgreco/himss2020/blob/master/tf_model_v5.zip?raw=true'
-
 url= 'https://github.com/fjgreco/Bioinformatics/blob/master/tf_model_v5.zip?raw=true'
-
 
 # NOTE: If you are re-running this code block again, having changed the model or adding your own custom model
 # be careful to ensure that your new model is the one which is truly downloaded.
