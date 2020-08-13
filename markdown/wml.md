@@ -67,11 +67,11 @@ Note: These credentials are unhidden for demo purposes.
 ```python
 wml_credentials = {
   "apikey": "<replace>",
-  "iam_apikey_description": "<repalce>",
+  "iam_apikey_description": "<replce>",
   "iam_apikey_name": "replace",
   "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Writer",
   "iam_serviceid_crn": "<replace>",
-  "instance_id": "<repalce>",
+  "instance_id": "<replace>",
   "url": "https://us-south.ml.cloud.ibm.com"
 }
 
@@ -95,11 +95,11 @@ icos_credentials={
     "secret_access_key": "<replace>"
   },
   "endpoints": <replace>",
-  "iam_apikey_description": "<reaplce>,
-  "iam_apikey_name": "<reaplce>",
+  "iam_apikey_description": "<replace>,
+  "iam_apikey_name": "<replace>",
   "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Writer",
-  "iam_serviceid_crn": "<reaplce>",
-  "resource_instance_id": "<rreplace>"
+  "iam_serviceid_crn": "<replace>",
+  "resource_instance_id": "<replace>"
 }
 
 import ibm_boto3
