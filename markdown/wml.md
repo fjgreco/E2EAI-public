@@ -66,12 +66,12 @@ Note: These credentials are unhidden for demo purposes.
 
 ```python
 wml_credentials = {
-  "apikey": "AvtF6zGC6YD2FHWiB9viJTFtzTbBZecyPzAYzh0Q6ISy",
-  "iam_apikey_description": "Auto-generated for key fc7e3c6e-98a2-4f10-81c4-edcb67ab5ba4",
-  "iam_apikey_name": "Service credentials-1",
+  "apikey": "<replace>",
+  "iam_apikey_description": "<repalce>",
+  "iam_apikey_name": "replace",
   "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Writer",
-  "iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/c095a1d4738948bf43a84feb693c0d52::serviceid:ServiceId-989b8f81-f13f-4ca0-a2a3-3f71a1b51db7",
-  "instance_id": "615a5483-2072-4c9d-8d76-3fed527c6b59",
+  "iam_serviceid_crn": "<replace>",
+  "instance_id": "<repalce>",
   "url": "https://us-south.ml.cloud.ibm.com"
 }
 
@@ -89,17 +89,17 @@ print('client.version:', client.version)
 
 ```python
 icos_credentials={
-  "apikey": "uSYOgQRcMVikimnEwccgQcNW7xwp-ckXyB-8H-qhb2u-",
+  "apikey": "<replace>",
   "cos_hmac_keys": {
-    "access_key_id": "7b602b4cefa5483e8ee7d731e3275c52",
-    "secret_access_key": "3ac90cff6372194eb258b07f761bea92b7b1740923d3ad9e"
+    "access_key_id": <replace>",
+    "secret_access_key": "<replace>"
   },
-  "endpoints": "https://control.cloud-object-storage.cloud.ibm.com/v2/endpoints",
-  "iam_apikey_description": "Auto-generated for key 7b602b4c-efa5-483e-8ee7-d731e3275c52",
-  "iam_apikey_name": "HIMSS2020-Credential",
+  "endpoints": <replace>",
+  "iam_apikey_description": "<reaplce>,
+  "iam_apikey_name": "<reaplce>",
   "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Writer",
-  "iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/c095a1d4738948bf43a84feb693c0d52::serviceid:ServiceId-24edfd07-f9ab-46f0-be92-d8203b252328",
-  "resource_instance_id": "crn:v1:bluemix:public:cloud-object-storage:global:a/c095a1d4738948bf43a84feb693c0d52:b342a808-6323-46bd-844b-e01bc0671f9b::"
+  "iam_serviceid_crn": "<reaplce>",
+  "resource_instance_id": "<rreplace>"
 }
 
 import ibm_boto3
@@ -110,7 +110,7 @@ import time
 
 # Constants for IBM COS values
 COS_ENDPOINT = "https://s3.us.cloud-object-storage.appdomain.cloud" # Current list avaiable at https://control.cloud-object-storage.cloud.ibm.com/v2/endpoints
-COS_API_KEY_ID = icos_credentials["apikey"] # eg "W00YiRnLW4a3fTjMB-odB-2ySfTrFBIQQWanc--P3byk"
+COS_API_KEY_ID = icos_credentials["apikey"] 
 COS_AUTH_ENDPOINT = 'https://iam.bluemix.net/oidc/token'
 COS_RESOURCE_CRN = icos_credentials["resource_instance_id"]
 
