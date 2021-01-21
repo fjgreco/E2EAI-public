@@ -253,8 +253,8 @@ client.training.ConfigurationMetaNames.NAME         : "zen-bioinformatics-traini
 client.training.ConfigurationMetaNames.TRAINING_DATA_REFERENCE : {
    "connection" : { 
       "endpoint_url"      : "https://s3.us.cloud-object-storage.appdomain.cloud",
-      "access_key_id"     : "7d6ca104f1fb4ff88bd8ad9ec7bdd090",
-      "secret_access_key" : "f89db50acd602219b4e5aa443cca7b2ca8f949ad0ca927ed"
+      "access_key_id"     : "******",
+      "secret_access_key" : "******"
       },
    "source" : { 
       "bucket" : "hmss2020-training",
@@ -264,8 +264,8 @@ client.training.ConfigurationMetaNames.TRAINING_DATA_REFERENCE : {
 client.training.ConfigurationMetaNames.TRAINING_RESULTS_REFERENCE: {
    "connection" : {
       "endpoint_url"      : "https://s3.us.cloud-object-storage.appdomain.cloud",
-      "access_key_id"     : "7d6ca104f1fb4ff88bd8ad9ec7bdd090",
-      "secret_access_key" : "f89db50acd602219b4e5aa443cca7b2ca8f949ad0ca927ed"
+      "access_key_id"     : "******",
+      "secret_access_key" : "******"
       },
       "target" : {
          "bucket" : "hmss2020-results",
@@ -351,14 +351,14 @@ client.training.get_details(run_uid)
        'running_at': '2020-03-02T23:37:44.450Z',
        'state': 'completed',
        'submitted_at': '2020-03-02T23:37:33.627Z'},
-      'training_data_reference': {'connection': {'access_key_id': '7d6ca104f1fb4ff88bd8ad9ec7bdd090',
+      'training_data_reference': {'connection': {'access_key_id': '******',
         'endpoint_url': 'https://s3.us.cloud-object-storage.appdomain.cloud',
-        'secret_access_key': 'f89db50acd602219b4e5aa443cca7b2ca8f949ad0ca927ed'},
+        'secret_access_key': '******'},
        'location': {'bucket': 'hmss2020-training'},
        'type': 's3'},
-      'training_results_reference': {'connection': {'access_key_id': '7d6ca104f1fb4ff88bd8ad9ec7bdd090',
+      'training_results_reference': {'connection': {'access_key_id': '******',
         'endpoint_url': 'https://s3.us.cloud-object-storage.appdomain.cloud',
-        'secret_access_key': 'f89db50acd602219b4e5aa443cca7b2ca8f949ad0ca927ed'},
+        'secret_access_key': '******'},
        'location': {'bucket': 'hmss2020-results',
         'model_location': 'training-WyAzx1lWg'},
        'type': 's3'}},
