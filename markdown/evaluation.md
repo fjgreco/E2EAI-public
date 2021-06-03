@@ -529,6 +529,7 @@ def make_predictions(model,X,Y):
 y_predictions,y_probabilities=make_predictions(loaded_model,input_features,input_labels)
 ```
 <details>
+
     X=CCGAGGGCTATGGTTTGGAAGTTAGAACCCTGGGGCTTCTCGCGGACACC, Predicted=0 Probability=[9.9999499e-01 4.9788855e-06] Y=0.0
     X=GAGTTTATATGGCGCGAGCCTAGTGGTTTTTGTACTTGTTTGTCGCGTCG, Predicted=0 Probability=[9.9999964e-01 4.1512297e-07] Y=0.0
     X=GATCAGTAGGGAAACAAACAGAGGGCCCAGCCACATCTAGCAGGTAGCCT, Predicted=0 Probability=[9.9999964e-01 3.1563667e-07] Y=0.0
@@ -590,6 +591,7 @@ for i in range(startx1,endx1,stepx1):
 ![png](images_train/output_47_5.png)
     
 </details>  
+
 
 ### Estimage consensus motif
 
