@@ -1,12 +1,10 @@
-## Evaluation
 
 # Bioinformatics Modeling 
 
-## Salience Analysis
+## Post-training Salience Analysis
 
-### Contact: fjgreco@us.ibm.com
 
-## Run the following in CP4D
+### Run the following when in CP4D
 
 
 ```python
@@ -15,6 +13,7 @@ project = Project.access()
 storage_credentials = project.get_storage_metadata()
 ```
 
+### import packages
 
 ```python
 import sys
