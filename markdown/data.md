@@ -395,30 +395,31 @@ icos.create_bucket(bucket)
 
     s3.Bucket(name='assay-060221')
 
+```python
+icos.upload_file(bucket,'assay_data_full.csv','assay-060321/assay/assay_data_full.csv')
+```
+
+    File Uploaded
 
 
 
 ```python
-icos.upload_file(bucket,'assay_data_full.csv','assay/assay_data_full.csv')
+icos.upload_file(bucket,'assay_data_full.lbl','assay-060321/assay_data_full.lbl')
 ```
 
-    <class 'Exception'> [Errno 2] No such file or directory: 'assay_data_full.csv'
+    File Uploaded
 
 
 
 ```python
-icos.upload_file(bucket,'assay_data_full.lbl','assay/assay_data_full.lbl')
+icos.upload_file(bucket,'assay_data_full.seq','assay-060321/assay_data_full.seq')
 ```
 
-    <class 'Exception'> [Errno 2] No such file or directory: 'assay_data_full.lbl'
+    File Uploaded
 
 
 
-```python
-icos.upload_file(bucket,'assay_data_full.seq','assay/assay_data_full.seq')
-```
 
-    <class 'Exception'> [Errno 2] No such file or directory: 'assay_data_full.seq'
 
 
 ## Catalog assets in WKC
