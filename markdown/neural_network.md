@@ -1,11 +1,14 @@
-# An example neural network program to identify protein binding patterns
+# Bioinformatics Modeling
+
+## Neural Network Builder
+
 
 ![png](images/simplemodel.png)
 
 Source: A Primer on Deep Learning in Genomics - Public
 
 
-# A table depicting the neural network topology (without LSTM layer)
+# The neural network topology (without LSTM layer)
 
     Model: "sequential_1"
     _________________________________________________________________
@@ -25,20 +28,42 @@ Source: A Primer on Deep Learning in Genomics - Public
     Trainable params: 6,226
     Non-trainable params: 0
     _________________________________________________________________
-# Bioinformatics Modeling
 
-## Neural Network Builder
+##  With LSTM Layer
 
-### Contact: fjgreco@us.ibm.com
-%lsmagic
-## Run the following in CP4D
+    Layer (type)                 Output Shape              Param #   
+    =================================================================
+    conv1d (Conv1D)              (None, 89, 32)            1568      
+    _________________________________________________________________
+    max_pooling1d (MaxPooling1D) (None, 22, 32)            0         
+    _________________________________________________________________
+    lstm (LSTM)                  (None, 50)                16600     
+    _________________________________________________________________
+    flatten (Flatten)            (None, 50)                0         
+    _________________________________________________________________
+    dense (Dense)                (None, 16)                816       
+    _________________________________________________________________
+    dense_1 (Dense)              (None, 2)                 34        
+    =================================================================
+    Total params: 19,018
+    Trainable params: 19,018
+    Non-trainable params: 0
+    _________________________________________________________________
+    a bioinformatics_model.h5
+    binary_accuracy: 82.00%
+
+
+## Setup when running in CP4D/Watson Studio
+```python
 from project_lib import Project
 project = Project.access()
 storage_credentials = project.get_storage_metadata()!ls /project_data/data_assetwith open('/project_data/data_asset/neural_network.py') as py:
     new_nnfile=py.read()%%writefile  /project_data/data_asset/new_neural_network.py
 %load /project_data/data_asset/neural_network.py
 ## Edit the following
+```
 
+## Inline editing of code...
 
 ```python
 %%writefile new_neural_network.py
@@ -348,7 +373,7 @@ os.environ['DATA_DIR']='assay'
     binary_accuracy: 82.00%
 
 
-## Create zip payload file
+## Create payload zip file
 
 
 ```python
@@ -435,11 +460,11 @@ os.environ['DATA_DIR']='assay'
     Known motif: CGACCGAACTCC
     Sequence: GATACCCCCCCCACCCCCCCTCCCCCCCCCCCCCCCCCCGACCGAACTCC
 
-![png](images_train/output_68_1.png)
+![png](images_train/output_47_2.png)
 
     No-bind probability: 2.4192843284254195e-06 Bind probability: 0.999997615814209        
     
-## Thus far, everything can potentially run anywhere e.g., on a laptop or a local cluster. 
+## Thus far, everything can easily run anywhere e.g., on a laptop or a local cluster. 
 
 But, 
 - Bioinformatic data can be very large.
