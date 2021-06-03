@@ -1,11 +1,9 @@
-# Bioinformatics Modeling Using Watson Machine Learning
+# Bioinformatics Modeling 
 
 ![png](images/CommonProjectFramework.png)
 
 ![png](images/WML-081120.png)
 
-
-# Bioinformatics Model 
 
 ## Training Using Watson Machine Learning
 
@@ -90,48 +88,13 @@ wkc.reset_BearerToken()
 
 ```python
 with open("manifest.json") as json_file:
-    manifest = json.load(json_file)
-    zip_file = manifest['manifest']['zip_file']
-    git_url =  manifest['manifest']['git_url']
-    neural_network_pgm =  manifest['manifest']['neural_network_pgm']
-    training_definition_name =  manifest['manifest']['training_definition_name']
-    training_run_name =  manifest['manifest']['training_run_name']
-    trained_model_name =  manifest['manifest']['trained_model_name']
-    compressed_recompiled_model =  manifest['manifest']['compressed_recompiled_model'] 
-    recompiled_model_h5 =  manifest['manifest']['recompiled_model_h5']
-    deployment_name  =  manifest['manifest']['deployment_name'] 
-    training_bucket =  manifest['manifest']['training_bucket'] 
-    results_bucket  =  manifest['manifest']['results_bucket']
-        
+    manifest = json.load(json_file)        
 ```
 
 
 ```python
 experiment_manifest=manifest['manifest']
 ```
-
-
-```python
-experiment_manifest
-```
-
-
-
-
-    {'zip_file': 'tf_model_v8.zip',
-     'git_url': 'https://github.com/fjgreco/e2eai_assay/blob/master/tf_model_v8.zip?raw=true',
-     'neural_network_pgm': 'tf_model_v8/neural_network_v8.py',
-     'training_definition_name': 'mac-bioinformatics-training-definition_v4nn8',
-     'training_run_name': 'mac-bioinformatics-training-run_v4nn8',
-     'trained_model_name': 'mac_bioinformatics_model_v4nn8',
-     'compressed_recompiled_model': 'mac_recompiled_bioinformatics_model_v4nn8.tgz',
-     'recompiled_model_h5': 'mac_recompiled_bioinformatics_model.h5',
-     'deployment_name': 'mac_bioinformatics_deployment_v4nn8',
-     'training_bucket': 'e2eai-training',
-     'results_bucket': 'e2eai-results',
-     'model_location': 'training-MdlNodeMR'}
-
-
 
 
 ```python
