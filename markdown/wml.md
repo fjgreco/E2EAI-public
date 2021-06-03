@@ -2,7 +2,9 @@
 ## Training Using Watson Machine Learning
 
 
-![png](images/CommonProjectFramework.png)
+![jpeg](images_expo/Slide7.jpeg)
+
+![jpeg](images_expo/Slide8.jpeg)
 
 ![png](images/WML-081120.png)
 
@@ -691,7 +693,6 @@ wkc.add_asset_inline(metadata_inline)
       "href": "https://api.dataplatform.cloud.ibm.com/v2/assets/5e94d654-b7a4-4976-b39b-97cefb34456a?catalog_id=c28ff3ef-3fa0-4c6c-a7f8-c2be92976a75",
       "asset_id": "5e94d654-b7a4-4976-b39b-97cefb34456a"
     }
-
 
 
 [![return](../buttons/return.png)](../README.md#WML)

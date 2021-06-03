@@ -1,5 +1,7 @@
 ## End-to-End Analytic Computational Pipeline 
 
+![jpeg](./images_expo/Slide6.jpeg)
+
 ![png](./images/CommonProjectFramework.png)
 
 ![png](./images/E2EAI-081120.png)

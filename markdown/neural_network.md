@@ -457,11 +457,17 @@ os.environ['DATA_DIR']='assay'
     
 ## Thus far, everything can easily run anywhere e.g., on a laptop or a local cluster. 
 
-But, 
+![jpeg](images_expo/Slide4.jpeg)
+
+### But, 
 - Bioinformatic data can be very large.
 - The models can be very large and computationally complex.
+
+![jpeg](images_expo/Slide5.jpeg)
 
 ![png](images/LargeNetwork.png)
 
 [![return](../buttons/return.png)](../README.md#NeuralNetwork)
 [![return](../buttons/next.png)](./wml.md)
+
+

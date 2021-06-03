@@ -3,6 +3,7 @@
 
 ## Post-training Salience Analysis
 
+![jpeg](images_expo/Slide6.jpeg)
 
 ### Run the following when in CP4D
 
@@ -725,7 +726,7 @@ print("Consensus Motif: {}".format(motif))
     Consensus Motif: CGACCGAACTCC
 
 
-
+![jpeg](images_expo/Slide10.jpeg)
 
 [![return](../buttons/return.png)](../README.md#Evaluation)
 [![return](../buttons/next.png)](./deployment.md)
