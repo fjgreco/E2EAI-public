@@ -271,8 +271,6 @@ build_assay_csv_file(sequences,labels,csv=r'assay_data_full.csv')
     -rw-r--r--   1 fjgreco  staff    3246 Aug 13 23:19 SALIENCE.py
     -rw-r--r--   1 fjgreco  staff    2938 Aug 13 23:19 SALIENCE2.py
     -rw-r--r--   1 fjgreco  staff    6097 Aug 13 23:19 WKC.py
-    drwxr-xr-x   7 fjgreco  staff     224 Aug 24 22:43 [34m__pycache__[m[m
-    drwxr-xr-x@  6 fjgreco  staff     192 Aug 25 08:00 [34massay[m[m
     -rw-r--r--   1 fjgreco  staff   20616 Aug 25 09:48 assay_data_full.csv
     -rw-r--r--   1 fjgreco  staff     400 Aug 25 09:48 assay_data_full.lbl
     -rw-r--r--   1 fjgreco  staff   20200 Aug 25 09:48 assay_data_full.seq
