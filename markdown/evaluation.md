@@ -203,9 +203,9 @@ dl2=icos.get_download_list_loc(results_bucket, model_location)
     training-MdlNodeMR/training-log.txt
 
 
-## Review results
+## Review results produced during training
 
-### Produce accuracy and loss graphs
+### Extract and view accuracy and loss graphs
 
 
 ```python
@@ -253,7 +253,7 @@ plt.show()
     
 
 
-### Produce and save a confusion matrix
+### Extract and view a confusion matrix
 
 
 ```python
@@ -286,43 +286,6 @@ plt.show()
     
 
 
-
-
-### Produce and save a confusion matrix
-
-
-```python
-import itertools
-
-with open('bioinformatics_model_cm.p', 'rb') as p_file:
-    cm = pickle.load(p_file)
-
-plt.imshow(cm, cmap=plt.cm.Blues)
-plt.title('Normalized confusion matrix')
-plt.colorbar()
-plt.xlabel('True label')
-plt.ylabel('Predicted label')
-plt.xticks([0, 1]); plt.yticks([0, 1])
-plt.grid('off')
-for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
-    plt.text(j, i, format(cm[i, j], '.2f'),
-             horizontalalignment='center',
-             color='white' if cm[i, j] > 0.5 else 'black')
-
-plt.savefig('bioinformatics_model_confusion_matrix.png')
-
-plt.show()
-```
-
-    /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/matplotlib/cbook/__init__.py:424: MatplotlibDeprecationWarning: 
-    Passing one of 'on', 'true', 'off', 'false' as a boolean is deprecated; use an actual boolean (True/False) instead.
-      warn_deprecated("2.2", "Passing one of 'on', 'true', 'off', 'false' as a "
-
-
-
-    
-![png](images_train/output_27_1.png)
-    
 
 
 ## Compile model locally
