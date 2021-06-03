@@ -43,7 +43,7 @@
 
 ## Additional Resources
 
-#### Links
+#### Websites
 
 - [IBM Cloud Pak for Data](https://developer.ibm.com/clouddataservices/docs/ibm-cloud-pak-for-data/)
 
