@@ -64,5 +64,3 @@
 - [IBM Watson Knowledge Catalog Concepts Overview](https://www.youtube.com/watch?v=OMBNKk8LNck&list=PLzpeuWUENMK1z9oXhTlbNXRiRaBjSpUKJ&index=4)
 
 - [IBM Create Folder Asset Connections in IBM Watson Knowledge Catalog](https://www.youtube.com/watch?v=WVUPHRsXwSQ&list=PLzpeuWUENMK1z9oXhTlbNXRiRaBjSpUKJ&index=8)
-
-[![return](./buttons/return.png)](#Context)
