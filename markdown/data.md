@@ -258,10 +258,10 @@ build_assay_csv_file(sequences,labels,csv=r'assay_data_full.csv')
 
 
 
-
 ```python
 !ls -al
 ```
+<details>
 
     total 2224
     drwxr-xr-x  30 fjgreco  staff     960 Aug 25 09:48 [34m.[m[m
@@ -294,10 +294,13 @@ build_assay_csv_file(sequences,labels,csv=r'assay_data_full.csv')
     -rw-r--r--   1 fjgreco  staff   35799 Aug 13 23:19 wml-mac-bioinformatics-e2e.ipynb
     -rw-r--r--   1 fjgreco  staff  718036 Aug 24 22:41 wml-mac-bioinformatics-salience.ipynb
     -rw-r--r--   1 fjgreco  staff   50760 Aug 24 23:50 wml-mac-bioinformatics-train.ipynb
+</details>
 
+### Build  separate sequence and label file from full  assay data file (Optional)
 
-### Build  separate sequence and label file from full  assay data file
+```python
 s,l=read_assay_data_file('assay_data_full.csv',splitfile=True)
+```
 ## Review list of created assets
 
 
@@ -464,6 +467,9 @@ json_metadata = json.dumps(metadata, indent = 2)
 with open('assay_folder.json', 'w') as fd:
     fd.write(json_metadata)
 ```
+#### Alternative Approach - Inline editing
+
+```python
 %%writefile assay_folder.json
 {
   "metadata": {
@@ -483,6 +489,7 @@ with open('assay_folder.json', 'w') as fd:
     }
   }
 }
+```
 
 ```python
 wkc.add_asset('assay_folder.json')
