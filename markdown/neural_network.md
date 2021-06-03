@@ -437,7 +437,6 @@ os.environ['DATA_DIR']='assay'
     -rw-r--r--   1 fjgreco  staff     7005 Jun  2 22:28 neural_network_v8.py
     -rw-r--r--   1 fjgreco  staff     7005 Jun  2 22:25 new_neural_network.py
     -rw-r--r--@  1 fjgreco  staff     1118 Jan 20 20:08 nirvana_credentials.json
-    drwxr-xr-x   4 fjgreco  staff      128 Sep  9  2020 [34mtf_model_v8[m[m
     -rw-r--r--   1 fjgreco  staff     2887 Jun  2 22:36 tf_model_v8.zip
     -rw-r--r--   1 fjgreco  staff      524 Jun  2 22:34 training-log.txt
     -rw-r--r--   1 fjgreco  staff    31061 Jun  2 22:36 wml-v4-bioinformatics-train(current).ipynb
