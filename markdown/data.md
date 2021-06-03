@@ -1,5 +1,8 @@
+# Bioinformatics Modeling
 ## Data Collection and Organization
 
+
+## Synthetic Gene Sequence Data Builder
 ![png](images/assay_data.png)
 
 We use a synthetic data generator to create a set of base sequences.
@@ -11,16 +14,16 @@ Assay data is uploaded to ICOS.
 
 The file is cataloged and added to the project as connected data.
 
-# Bioinformatics Modeling
-
-## Synthetic Gene Sequence Data Builder
-
-### Contact: fjgreco@us.ibm.com
 
 ## Enable project_lib interface to faciliate data asset access.
+
+```python
+# Use when running on Watson Studio
 from project_lib import Project
 project = Project.access()
 storage_credentials = project.get_storage_metadata()
+```
+
 
 ```python
 import sys
