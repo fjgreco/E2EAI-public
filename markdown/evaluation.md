@@ -366,7 +366,7 @@ loaded_model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['acc
 print("Compiled loaded model")
 ```
 
-## Generate/Access test data
+### Generate/Access test data
 
 ```python
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
