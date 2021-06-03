@@ -15,7 +15,7 @@ A developer is also engaged to facilitate software development and data handling
 The following project environment has been setup:
 
  - A Cloud Pak for Data / Watson Studio project has been created to allow collabative development.
- - 
+ 
  - Researcher, Data Scientist, Developer, and  Practitioner roles have been defined for the project. These are used to control access rights.
 
  -  An IBM Cloud Object Storage instance has been established to house the assay data and results of 
