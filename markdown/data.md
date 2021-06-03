@@ -311,9 +311,6 @@ s,l=read_assay_data_file('assay_data_full.csv',splitfile=True)
     
     assay:
     total 792
-    drwxr-xr-x@  6 fjgreco  staff     192 Aug 25 08:00 [34m.[m[m
-    drwxr-xr-x  30 fjgreco  staff     960 Aug 25 09:48 [34m..[m[m
-    drwxr-xr-x   2 fjgreco  staff      64 Aug 25 01:29 [34m.ipynb_checkpoints[m[m
     -rw-r--r--   1 fjgreco  staff  200616 Aug 25 08:00 assay_data_full.csv
     -rw-r--r--   1 fjgreco  staff     400 Aug 25 07:51 assay_data_full.lbl
     -rw-r--r--   1 fjgreco  staff  200200 Aug 25 07:51 assay_data_full.seq
