@@ -345,22 +345,28 @@ loaded_model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['
     If using Keras pass *_constraint arguments to layers.
 
 
-### Approach 2: Compile model locally using weights and json
-# load json and create model
+## Approach 2: Compile model locally using weights and json
+### load json and create model
+
+```python
 with open('bioinformatics_model.json', 'r') as json_file:
     loaded_model_json = json_file.read()
     
 loaded_model = model_from_json(loaded_model_json)
+```
 
-# load weights into new model
+### load weights into new model and compile
+
+```python
 loaded_model.load_weights("bioinformatics_model_weights.h5")
 print("Loaded model from disk")
 
 # Complile loaded model
 loaded_model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 print("Compiled loaded model")
-## Generate/Access test data
+```
 
+## Generate/Access test data
 
 ```python
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
