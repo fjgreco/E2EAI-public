@@ -3,6 +3,7 @@
 
 
 ## Synthetic Gene Sequence Data Builder
+
 ![png](images/assay_data.png)
 
 We use a synthetic data generator to create a set of base sequences.
@@ -38,7 +39,9 @@ import pandas as pd
 import numpy as np
 ```
 
-### Build gene sequence feature and label lists
+### Function Definitions
+
+#### Build gene sequence feature and label lists
 
 
 ```python
@@ -75,7 +78,7 @@ def build_assay_data(numseq=200, seqlen=50,motif='CGACCGAACTCC'):
 
 ```
 
-### Save assay data
+#### Save assay data
 
 
 ```python
@@ -95,7 +98,7 @@ def save_assay_data(sequences,sequence_fn, labels, label_fn):
     fd.close()
 ```
 
-### Build assay csv file
+#### Build assay csv file
 
 
 ```python
@@ -121,7 +124,7 @@ def build_assay_csv_file(sequences,labels, csv='assay_data.csv'):
 
 ```
 
-### Assay data file reader
+#### Assay data file reader
 
 
 ```python
@@ -158,7 +161,7 @@ def read_assay_data_file(csvfile,splitfile=True):
     return sequences, labels
 ```
 
-# Build files...
+## Build files...
 
 
 ```python
