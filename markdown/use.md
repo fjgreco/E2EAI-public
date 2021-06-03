@@ -1,8 +1,9 @@
-![png](images/CommonProjectFramework.png)
-
 ## Post Deployment Use
 
-## SOME MORE TIME LATER...
+![png](images/CommonProjectFramework.png)
+
+
+### SOME TIME LATER...
 
 ### Retrieve the scoring endpoint from project asset storage
 
