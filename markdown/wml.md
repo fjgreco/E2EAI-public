@@ -1,18 +1,20 @@
 # Bioinformatics Modeling 
+## Training Using Watson Machine Learning
+
 
 ![png](images/CommonProjectFramework.png)
 
 ![png](images/WML-081120.png)
 
 
-## Training Using Watson Machine Learning
-
-### Contact:  fjgreco@us.ibm.com
 
 ## Run the following in CP4D
+```python
 from project_lib import Project
 project = Project.access()
 storage_credentials = project.get_storage_metadata()
+```
+
 ## Import packages
 
 
