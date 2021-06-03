@@ -1,6 +1,6 @@
 ## Scientific Use Case
 
-Transcription Binding Factors
+Transcription Factor Protein Binding Site Discovery
 
 ![jpeg](images_expo/Slide1.jpeg)
 

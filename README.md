@@ -49,6 +49,14 @@
 
 - [IBM Cloud Catalog](https://console.bluemix.net/catalog/)
 
+- [IBM Cloud API &SDK Reference Library](https://cloud.ibm.com/docs?tab=api-docs)   
+
+- [IBM WML API](https://cloud.ibm.com/apidocs/machine-learning-cp)
+
+- [IBM COS API](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-python)
+
+- [IBM Data API](https://cloud.ibm.com/apidocs/watson-data-api-cpd)
+
 #### Videos
 
 - [IBM Watson Data and AI](https://www.youtube.com/watch?v=EdceqGUuEQM)
