@@ -129,7 +129,7 @@ icos.list_objects(results_bucket)
 
     Retrieving bucket contents from: e2eai-results
         
-    
+<details>
     training-MdlNodeMR/_submitted_code/model.zip
     training-MdlNodeMR/bioinformatics_model.h5
     training-MdlNodeMR/bioinformatics_model.json
@@ -180,7 +180,7 @@ icos.list_objects(results_bucket)
     training-zj8LDEsGg/model/std.err
     training-zj8LDEsGg/model/std.out
     training-zj8LDEsGg/training-log.txt
-
+</details>
 
 
 ```python
