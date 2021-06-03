@@ -264,11 +264,7 @@ build_assay_csv_file(sequences,labels,csv=r'assay_data_full.csv')
 <details>
 
     total 2224
-    drwxr-xr-x  30 fjgreco  staff     960 Aug 25 09:48 [34m.[m[m
-    drwxr-xr-x   8 fjgreco  staff     256 Aug 25 01:51 [34m..[m[m
-    -rw-r--r--@  1 fjgreco  staff    6148 Aug 25 08:12 .DS_Store
-    drwxr-xr-x   7 fjgreco  staff     224 Aug 25 09:44 [34m.ipynb_checkpoints[m[m
-    drwxr-xr-x@  4 fjgreco  staff     128 Aug 24 22:11 [34mAssay1[m[m
+    
     -rw-r--r--   1 fjgreco  staff    6493 Aug 13 23:19 ICOS.py
     -rw-r--r--   1 fjgreco  staff       1 Aug 13 23:19 README.md
     drwxr-xr-x   8 fjgreco  staff     256 Aug 25 00:12 [34mRESULTS[m[m
