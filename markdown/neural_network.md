@@ -415,7 +415,7 @@ os.environ['DATA_DIR']='assay'
    
     -rw-r--r--   1 fjgreco  staff     8577 Jun  2 21:10 ICOS.py
     -rw-r--r--   1 fjgreco  staff        1 Aug 13  2020 README.md
-    SALIENCE.py
+    SALIENCE.y
     -rw-r--r--   1 fjgreco  staff    20437 Jun  2 19:33 WKC.py
     drwxr-xr-x   7 fjgreco  staff      224 Jun  2 22:29 bioinformatics_model.h5
     -rw-r--r--   1 fjgreco  staff     2704 Jun  2 22:28 bioinformatics_model.json
