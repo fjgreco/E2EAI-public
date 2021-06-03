@@ -1,5 +1,3 @@
-## Deployment
-
 ## DEPLOYMENT
 
 ### Save re-compiled model and package for deployment
