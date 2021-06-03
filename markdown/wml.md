@@ -83,10 +83,11 @@ wkc=WKC.WKC(ibmcloud_template,catalog_name='Catalog-010721')
 
 
 ```python
-# Use as needed to renew token
+# Use as needed to renew bearer token
 wkc.reset_BearerToken()
 ```
 
+### Read experiment manifest from Catalog
 
 ```python
 with open("manifest.json") as json_file:
@@ -115,7 +116,7 @@ results_bucket=experiment_manifest['results_bucket']
 #print(res)
 ```
 
-## Step 2: Download the sample model-building code into the notebook's working directory:
+## Download the model-building code into the notebook's working directory:
 
 
 ```python
@@ -134,8 +135,11 @@ else:
 
 
 ### Optional: Check the local file system to confirm the download from github
+```python
 !ls -alR
-## Step 3: Train the model
+```
+ 
+## Train the model using WML & WML/A
 
 ###  Instantiate a WML client object:
 
@@ -305,7 +309,6 @@ training_metadata = {
 }
 ```
 
-## Step 4: Monitor training progress and results
 
 ## Start run and monitor training progress
 
@@ -319,6 +322,7 @@ from time import sleep
 
 cts=client.training.get_details(training_id)['entity']['status']['state']
 
+# Training job runs asynchronously
 while cts not in ['completed', 'failed', 'canceled', 'error']:
     print(cts,end=' ')
     sleep(10)
@@ -417,7 +421,7 @@ print(json.dumps(ctd,indent=2))
     }
 
 
-### model.h5, model.tgz, model.json, and model_weights.h5 were placed in ICOS by the keras python program
+### model.h5, model.tgz, model.json, and model_weights.h5 were placed in ICOS by the payload program
 
 ### Extract folder in results containing training output
 
@@ -427,12 +431,7 @@ model_location= ctd['entity']['results_reference']['location']['logs']
 model_location
 ```
 
-
-
-
     'training-qDMh8O6GR'
-
-
 
 
 ```python
@@ -458,8 +457,6 @@ manifest
 ```
 
 
-
-
     {'manifest': {'zip_file': 'tf_model_v8.zip',
       'git_url': 'https://github.com/fjgreco/e2eai_assay/blob/master/tf_model_v8.zip?raw=true',
       'neural_network_pgm': 'tf_model_v8/neural_network_v8.py',
@@ -482,13 +479,13 @@ with open('manifest.json', 'w', encoding='utf-8') as f:
     json.dump(manifest, f, ensure_ascii=False, indent=4)
 ```
 
-## Review results
+## Review locally stored results
 
 
 ```python
 !cat training-log.txt
 ```
-
+<details>
     Training with training/test data at:
       DATA_DIR: /mnt/data/e2eai-training
       MODEL_DIR: /job/model-code
@@ -582,7 +579,7 @@ with open('manifest.json', 'w', encoding='utf-8') as f:
     Non-trainable params: 0
     _________________________________________________________________
     binary_accuracy: 99.60%
-
+</details>
 
 ## Register results in Catalog
 
