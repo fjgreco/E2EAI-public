@@ -412,20 +412,12 @@ os.environ['DATA_DIR']='assay'
 ```
 
     total 4016
-    drwxr-xr-x  37 fjgreco  staff     1184 Jun  2 22:36 [34m.[m[m
-    drwxr-xr-x@  9 fjgreco  staff      288 Jun  2 19:44 [34m..[m[m
-    -rw-r--r--@  1 fjgreco  staff     6148 Sep  9  2020 .DS_Store
-    drwxr-xr-x   9 fjgreco  staff      288 Jun  2 21:36 [34m.ipynb_checkpoints[m[m
-    drwxr-xr-x@  4 fjgreco  staff      128 Aug 24  2020 [34mAssay1[m[m
+   
     -rw-r--r--   1 fjgreco  staff     8577 Jun  2 21:10 ICOS.py
     -rw-r--r--   1 fjgreco  staff        1 Aug 13  2020 README.md
-    drwxr-xr-x  10 fjgreco  staff      320 Jun  2 21:14 [34mRESULTS[m[m
-    -rw-r--r--   1 fjgreco  staff     3246 Aug 13  2020 SALIENCE.py
+    SALIENCE.py
     -rw-r--r--   1 fjgreco  staff    20437 Jun  2 19:33 WKC.py
-    drwxr-xr-x   7 fjgreco  staff      224 Jun  2 22:29 [34m__pycache__[m[m
-    drwxr-xr-x   9 fjgreco  staff      288 Jun  2 20:35 [34marchive[m[m
-    drwxr-xr-x@  6 fjgreco  staff      192 Aug 25  2020 [34massay[m[m
-    -rw-r--r--   1 fjgreco  staff   270440 Jun  2 22:28 bioinformatics_model.h5
+    drwxr-xr-x   7 fjgreco  staff      224 Jun  2 22:29  bioinformatics_model.h5
     -rw-r--r--   1 fjgreco  staff     2704 Jun  2 22:28 bioinformatics_model.json
     -rw-r--r--   1 fjgreco  staff   218859 Jun  2 22:28 bioinformatics_model.tgz
     -rw-r--r--   1 fjgreco  staff    12987 Jun  2 21:14 bioinformatics_model_accuracy.pdf
