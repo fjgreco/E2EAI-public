@@ -1,10 +1,12 @@
 ## End-to-End Analytic Computational Pipeline 
 
+![jpeg](./images_expo/Slide3.jpeg)
+
 ![jpeg](./images_expo/Slide6.jpeg)
 
-![png](./images/CommonProjectFramework.png)
-
 ![jpeg](./images_expo/Slide8.jpeg)
+
+![jpeg](./images_expo/Slide11.jpeg)
 
 A researcher performes a biological assay which produces a data set that labels DNA sequences with protein binding properties.
 
