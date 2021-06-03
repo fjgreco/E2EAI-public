@@ -278,63 +278,13 @@ plt.savefig('bioinformatics_model_confusion_matrix.png')
 plt.show()
 ```
 
-    /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/matplotlib/cbook/__init__.py:424: MatplotlibDeprecationWarning: 
-    Passing one of 'on', 'true', 'off', 'false' as a boolean is deprecated; use an actual boolean (True/False) instead.
-      warn_deprecated("2.2", "Passing one of 'on', 'true', 'off', 'false' as a "
-
-
+    
 
     
 ![png](images_train/output_23_1.png)
     
 
 
-### Produce accuracy and loss graphs
-
-
-```python
-import pickle
-with open('bioinformatics_model_history.p', 'rb') as p_file:
-    history = pickle.load(p_file)
-
-import matplotlib.pyplot as plt
-%matplotlib inline
-
-plt.figure()
-plt.plot(history['loss'])
-plt.plot(history['val_loss'])
-plt.title('model loss')
-plt.ylabel('loss')
-plt.xlabel('epoch')
-plt.legend(['train', 'validation'])
-
-plt.savefig('bioinformatics_model_loss.png')
-plt.savefig('bioinformatics_model_loss.pdf')
-plt.show()
-
-
-plt.figure()
-plt.plot(history['binary_accuracy'])
-plt.plot(history['val_binary_accuracy'])
-plt.title('model accuracy')
-plt.ylabel('accuracy')
-plt.xlabel('epoch')
-plt.legend(['train', 'validation'])
-plt.savefig('bioinformatics_model_accuracy.png')
-plt.savefig('bioinformatics_model_accuracy.pdf')
-plt.show()
-```
-
-
-    
-![png](images_train/output_25_0.png)
-    
-
-
-
-    
-![png](images_train/output_25_1.png)
-    
 
 
 ### Produce and save a confusion matrix
