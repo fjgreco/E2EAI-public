@@ -6,7 +6,8 @@
 
 ![jpeg](./images_expo/Slide8.jpeg)
 
-![jpeg](./images_expo/Slide11.jpeg)
+![jpeg](./images_expo/Slide9.jpeg)
+
 
 A researcher performes a biological assay which produces a data set that labels DNA sequences with protein binding properties.
 
@@ -15,6 +16,8 @@ The researcher seeks a model that can learn to identify whether an target DNA se
 A data scientist is engaged to help develop a model.
 
 A developer is also engaged to facilitate software development and data handling.
+
+![jpeg](./images_expo/Slide11.jpeg)
 
 The following project environment has been setup:
 
