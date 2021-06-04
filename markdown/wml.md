@@ -341,7 +341,7 @@ print(json.dumps(ctd,indent=2))
         "name": "BIOINFO",
         "results_reference": {
           "connection": {
-            "access_key_id": "a4a4df6d96224aa4b08400626611a3fb",
+            "access_key_id": "*****",
             "endpoint_url": "https://s3.us.cloud-object-storage.appdomain.cloud",
             "secret_access_key": "992b9b35b901191631b667e1232e5f772a14983d14e5632d"
           },
@@ -373,7 +373,7 @@ print(json.dumps(ctd,indent=2))
         "training_data_references": [
           {
             "connection": {
-              "access_key_id": "a4a4df6d96224aa4b08400626611a3fb",
+              "access_key_id": "*****",
               "endpoint_url": "https://s3.us.cloud-object-storage.appdomain.cloud",
               "secret_access_key": "992b9b35b901191631b667e1232e5f772a14983d14e5632d"
             },
