@@ -341,9 +341,9 @@ print(json.dumps(ctd,indent=2))
         "name": "BIOINFO",
         "results_reference": {
           "connection": {
-            "access_key_id": "*****",
+            "access_key_id": "****",
             "endpoint_url": "https://s3.us.cloud-object-storage.appdomain.cloud",
-            "secret_access_key": "992b9b35b901191631b667e1232e5f772a14983d14e5632d"
+            "secret_access_key": "*****"
           },
           "location": {
             "path": "",
@@ -375,7 +375,7 @@ print(json.dumps(ctd,indent=2))
             "connection": {
               "access_key_id": "*****",
               "endpoint_url": "https://s3.us.cloud-object-storage.appdomain.cloud",
-              "secret_access_key": "992b9b35b901191631b667e1232e5f772a14983d14e5632d"
+              "secret_access_key": "*****"
             },
             "location": {
               "bucket": "e2eai-training"
