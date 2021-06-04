@@ -53,7 +53,7 @@ Source: A Primer on Deep Learning in Genomics - Public
     binary_accuracy: 82.00%
 
 
-## Setup when running in CP4D/Watson Studio
+### Run the following if in CP4D
 ```python
 from project_lib import Project
 project = Project.access()
