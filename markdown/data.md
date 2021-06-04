@@ -166,13 +166,22 @@ def read_assay_data_file(csvfile,splitfile=True):
 
 ```python
 numseq=200
-seqlen=100
+seqlen=50
 motif='CGACCGAACTCC'
-#choice_range=50
+
+local_dir='./assay'
+
+sequence_file='/assay_data_full.seq'
+label_file='/assay_data_full.lbl'
+csv_file='/assay_data_full.csv'
+
+local_sequence_file=local_dir+sequence_file
+local_label_file=local_dir+label_file
+local_csv_file=local_dir+csv_file
 
 sequences, labels = build_assay_data(numseq=numseq,seqlen=seqlen,motif=motif)
-save_assay_data(sequences,'assay_data_full.seq',labels,'assay_data_full.lbl')
-build_assay_csv_file(sequences,labels,csv=r'assay_data_full.csv')
+save_assay_data(sequences,local_sequence_file,labels,local_label_file)
+build_assay_csv_file(sequences,labels,csv=local_csv_file)
 ```
 
     numseq: 200 seqlen: 100 number insertions: 95
@@ -340,6 +349,8 @@ import json
 
 ```python
 bucket='assay-060221'
+bucket='assay-060421'
+folder='assay'
 
 asset_name="assay-060221"
 
@@ -362,7 +373,7 @@ icos.create_bucket(bucket)
     s3.Bucket(name='assay-060221')
 
 ```python
-icos.upload_file(bucket,'assay_data_full.csv','assay-060321/assay/assay_data_full.csv')
+icos.upload_file(bucket,local_csv_file,folder+csv_file)
 ```
 
     File Uploaded
@@ -370,7 +381,7 @@ icos.upload_file(bucket,'assay_data_full.csv','assay-060321/assay/assay_data_ful
 
 
 ```python
-icos.upload_file(bucket,'assay_data_full.lbl','assay-060321/assay_data_full.lbl')
+icos.upload_file(bucket,local_label_file,folder+label_file)
 ```
 
     File Uploaded
@@ -378,7 +389,7 @@ icos.upload_file(bucket,'assay_data_full.lbl','assay-060321/assay_data_full.lbl'
 
 
 ```python
-icos.upload_file(bucket,'assay_data_full.seq','assay-060321/assay_data_full.seq')
+icos.upload_file(bucket,local_sequence_file,folder+sequence_file)
 ```
 
     File Uploaded

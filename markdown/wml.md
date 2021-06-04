@@ -82,22 +82,6 @@ experiment_manifest=manifest['manifest']
 ```
 
 
-```python
-zip_file=experiment_manifest["zip_file"]
-git_url= experiment_manifest["git_url"]
-neural_network_pgm=experiment_manifest['neural_network_pgm']
-training_definition_name=experiment_manifest['training_definition_name']
-training_run_name=experiment_manifest['training_run_name']
-trained_model_name=experiment_manifest['trained_model_name']
-compressed_recompiled_model=experiment_manifest['compressed_recompiled_model']
-recompiled_model_h5=experiment_manifest['recompiled_model_h5']
-deployment_name=experiment_manifest['deployment_name']
-training_bucket=experiment_manifest['training_bucket']
-results_bucket=experiment_manifest['results_bucket']
-#res=icos.create_bucket(results_bucket)
-#print(res)
-```
-
 ## Download the model-building code into the notebook's working directory:
 
 
