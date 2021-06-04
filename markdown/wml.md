@@ -10,7 +10,7 @@
 
 
 
-## Run the following in CP4D
+## Run the following if in CP4D
 ```python
 from project_lib import Project
 project = Project.access()
@@ -42,33 +42,13 @@ from ibm_watson_machine_learning import APIClient
 with open("e2eai_credentials.json") as json_file:
     credentials = json.load(json_file)
 
-NIRVANA=credentials["NIRVANA"] # /v2
-NIRVANA_AUTH=credentials["NIRVANA_AUTH"]
-nirvana_apikey=credentials['nirvana_apikey'] # APIKey obtained from CP4D dashboard
-nirvana_credentials=credentials['nirvana_credentials']
-
 cp4d_template=credentials['cp4d_template']
-
-IBMCLOUD=credentials['IBMCLOUD_DATA']  #/v2/catalogs/
-
-IBMCLOUD_AUTH=credentials["IBMCLOUD_AUTH"]
-        
-ibmcloud_apikey=credentials['ibmcloud_apikey']
 
 ibmcloud_template=credentials['ibmcloud_template']
 
 wml_credentials=credentials['wml_credentials_e2eai']
 
 icos_credentials=credentials['icos_credentials_e2eai']
-
-apikey=icos_credentials['apikey'] #ICOS-E2EAI-credentials 
-
-ri=icos_credentials['resource_instance_id']
-
-#display(cp4d_template)
-#display(ibmcloud_template)
-#print(ri)
-#print(apikey,nirvana_apikey,nirvana_credentials)
 ```
 
 ###  Access Watson Knowledge Catalog
