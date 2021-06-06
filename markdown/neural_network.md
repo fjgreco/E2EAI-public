@@ -393,10 +393,6 @@ os.environ['DATA_DIR']='assay'
 !cp neural_network.py tf_model_v8/.
 ```
 
-    cp: neural_network.py: No such file or directory
-
-
-
 ```python
 !zip -r tf_model_v8.zip tf_model_v8
 ```
