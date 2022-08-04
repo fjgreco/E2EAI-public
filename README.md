@@ -66,3 +66,5 @@
 - [Getting Started with Cloud Pak for Data (Playlist)](https://video.ibm.com/playlist/632988)
 
 - [Watson Machine Learning (Playlist)](https://video.ibm.com/playlist/633101/video/131112143)
+
+### Page updated 08.04.2022
