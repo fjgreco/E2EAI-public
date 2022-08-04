@@ -57,10 +57,12 @@
 
 - [IBM Data API](https://cloud.ibm.com/apidocs/watson-data-api-cpd)
 
+-  [IBM Data Fabric](https://www.ibm.com/topics/data-fabric)
+
 #### Videos
 
-- [IBM Watson Data and AI](https://www.youtube.com/watch?v=EdceqGUuEQM)
+- [Introduction to Cloud Pak for Data](https://developer.ibm.com/articles/intro-to-cloud-pak-for-data/)
 
-- [IBM Watson Knowledge Catalog Concepts Overview](https://www.youtube.com/watch?v=OMBNKk8LNck&list=PLzpeuWUENMK1z9oXhTlbNXRiRaBjSpUKJ&index=4)
+- [Adding Assets to Watson Knowledge Catalog](https://video.ibm.com/recorded/130029636)
 
-- [IBM Create Folder Asset Connections in IBM Watson Knowledge Catalog](https://www.youtube.com/watch?v=WVUPHRsXwSQ&list=PLzpeuWUENMK1z9oXhTlbNXRiRaBjSpUKJ&index=8)
+- [Creating Folder Assets in WKC](https://video.ibm.com/recorded/127732781)
