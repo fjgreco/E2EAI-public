@@ -45,9 +45,9 @@
 
 #### Websites
 
-- [IBM Cloud Pak for Data](https://developer.ibm.com/clouddataservices/docs/ibm-cloud-pak-for-data/)
+- [IBM Cloud Pak for Data](https://developer.ibm.com/components/cloud-pak-for-data/)
 
-- [IBM Cloud Catalog](https://console.bluemix.net/catalog/)
+- [IBM Cloud Catalog](https://cloud.ibm.com/catalog)
 
 - [IBM Cloud API &SDK Reference Library](https://cloud.ibm.com/docs?tab=api-docs)   
 
