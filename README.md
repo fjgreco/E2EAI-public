@@ -63,6 +63,6 @@
 
 - [Introduction to Cloud Pak for Data](https://developer.ibm.com/articles/intro-to-cloud-pak-for-data/)
 
-- [Adding Assets to Watson Knowledge Catalog](https://video.ibm.com/recorded/130029636)
+- [Getting Started with Cloud Pak for Data (Playlist)](https://video.ibm.com/playlist/632988)
 
-- [Creating Folder Assets in WKC](https://video.ibm.com/recorded/127732781)
+- [Watson Machine Learning (Playlist)](https://video.ibm.com/playlist/633101/video/131112143)
