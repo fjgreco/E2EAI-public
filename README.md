@@ -53,6 +53,8 @@
 
 - [IBM WML API](https://cloud.ibm.com/apidocs/machine-learning-cp)
 
+- [Analyzing and Building Models](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/data-science.html)
+
 - [IBM COS API](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-python)
 
 - [IBM Data API](https://cloud.ibm.com/apidocs/watson-data-api-cpd)
@@ -67,4 +69,4 @@
 
 - [Watson Machine Learning (Playlist)](https://video.ibm.com/playlist/633101/video/131112143)
 
-### Page updated 08.04.2022
+#### Page updated 08.04.2022
