@@ -6,7 +6,7 @@
 
 The WML API illustrated in this tutorial has been superceded by a newer version.  
 
-The underlying application approach illustrated herein, however, remains valid.
+The underlying application approach, however, remains valid.
 
 Work is underway to update this tutorial to reflect the current version of the
 WML API.
