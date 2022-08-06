@@ -2,6 +2,16 @@
 
 [ProjectPage](https://fjgreco.github.io/E2EAI-public/)
 
+# Notice
+
+The WML API illustrated in this tutorial has been superceded by a newer version.  
+
+The underlying application approach illustrated herein, however, remains valid.
+
+Work is underway to update this tutorial to reflect the current version of the
+WML API.
+
+
 ## Motivation
 ![png](./markdown/images/OverTheFence.png)
 
